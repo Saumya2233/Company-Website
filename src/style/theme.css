@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #a572cf;
+  --secondary: #e87779;
+  --primary-dark: #8b5bb5;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --shadow-primary: 0 10px 25px rgba(165, 114, 207, 0.25);
+}
+
+body {
+  background: #ffffff;
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+.container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
