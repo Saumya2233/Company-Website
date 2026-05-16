@@ -40,26 +40,26 @@ export default function FaqSection() {
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           {/* Left */}
           <div>
-            <span className="inline-flex rounded-full bg-[var(--primary)]/10 px-5 py-2 text-xs font-semibold tracking-[4px] text-[var(--primary)]">
+            <span className="badge-primary text-xs font-semibold tracking-[4px]">
               FAQ
             </span>
 
-            <h2 className="mt-6 text-3xl font-semibold leading-tight text-[var(--text-primary)] md:text-4xl">
+            <h2 className="heading-section mt-6">
               Questions?
               <br />
-              <span className="font-medium text-[var(--text-secondary)]">
+              <span className="font-medium text-secondary">
                 We’ve got answers.
               </span>
             </h2>
 
-            <p className="mt-5 max-w-xl text-[15px] leading-7 text-[var(--text-secondary)]">
+            <p className="body-copy-sm mt-5 max-w-xl text-[15px]">
               Clear answers before you start building your next website, SaaS
               product or AI-powered platform with Mxpertz.
             </p>
 
             {/* Contact Box */}
             <div className="mt-10 rounded-[22px] border border-gray-200 bg-white p-6 shadow-sm">
-              <p className="text-sm font-medium text-[var(--text-secondary)]">
+              <p className="text-sm font-medium text-secondary">
                 Still confused?
               </p>
 
@@ -67,7 +67,7 @@ export default function FaqSection() {
                 Let’s discuss your project.
               </h3>
 
-              <button className="mt-6 rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-medium text-white transition hover:bg-[var(--primary-dark)]">
+              <button className="btn btn-primary btn-sm mt-6 font-medium">
                 Contact Us
               </button>
             </div>
@@ -91,7 +91,7 @@ export default function FaqSection() {
                       {item.question}
                     </h3>
 
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+                    <span className="flex-center h-8 w-8 shrink-0 rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
                       {isOpen ? (
                         <ChevronUp size={16} />
                       ) : (
@@ -102,7 +102,7 @@ export default function FaqSection() {
 
                   {isOpen && (
                     <div className="border-t border-gray-100 px-6 pb-5 pt-4">
-                      <p className="text-[15px] leading-7 text-[var(--text-secondary)]">
+                      <p className="body-copy-sm text-[15px]">
                         {item.answer}
                       </p>
                     </div>

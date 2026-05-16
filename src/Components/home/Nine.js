@@ -10,8 +10,8 @@ const stats = [
 export default function HappyClients() {
   return (
     <section className="relative overflow-hidden bg-[#fbf7ff] py-5">
-      <div className="absolute left-[-120px] top-20 h-80 w-80 rounded-full bg-[var(--primary)]/20 blur-3xl" />
-      <div className="absolute right-[-120px] bottom-20 h-80 w-80 rounded-full bg-[var(--secondary)]/20 blur-3xl" />
+      <div className="glow-primary-lg left-[-120px] top-20" />
+      <div className="glow-secondary right-[-120px] bottom-20 h-80 w-80 bg-[var(--secondary)]/20" />
 
       <div className="container-custom relative">
         {/* Heading */}
@@ -21,13 +21,13 @@ export default function HappyClients() {
             HAPPY CLIENTS
           </span>
 
-          <h2 className="mt-6 text-4xl font-semibold leading-tight text-[var(--text-primary)] md:text-5xl">
+          <h2 className="heading-section-lg mt-6 font-semibold">
             Trusted by growing companies
             <br />
             building faster with us
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-7 text-[var(--text-secondary)]">
+          <p className="body-copy-sm mx-auto mt-5 max-w-2xl text-[15px]">
             Startups and businesses trust Mxpertz to build scalable products,
             hire skilled developers and launch digital solutions faster.
           </p>
@@ -50,7 +50,7 @@ export default function HappyClients() {
                 <h3 className="text-xl font-semibold text-[var(--text-primary)]">
                   Sarah Johnson
                 </h3>
-                <p className="text-sm text-[var(--text-secondary)]">
+              <p className="text-sm text-secondary">
                   Founder @ NexaFlow
                 </p>
               </div>
@@ -62,7 +62,7 @@ export default function HappyClients() {
               process were smooth from day one.”
             </p>
 
-            <button className="mt-10 inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-7 py-4 text-sm font-medium text-white transition hover:bg-[var(--primary-dark)]">
+            <button className="btn btn-primary btn-md mt-10 py-4 font-medium">
               View Case Study
               <ArrowRight size={17} />
             </button>
@@ -79,7 +79,7 @@ export default function HappyClients() {
                   <h3 className="text-4xl font-semibold text-[var(--primary)]">
                     {item.value}
                   </h3>
-                  <p className="mt-3 text-sm text-[var(--text-secondary)]">
+                  <p className="mt-3 text-sm text-secondary">
                     {item.label}
                   </p>
                 </div>
@@ -93,7 +93,7 @@ export default function HappyClients() {
           {["NexaFlow", "CloudPeak", "BrightCRM", "ScaleHub"].map((item) => (
             <div
               key={item}
-              className="rounded-full border border-gray-100 bg-white px-6 py-3 text-sm font-medium text-[var(--text-secondary)] shadow-sm"
+              className="rounded-full border border-gray-100 bg-white px-6 py-3 text-sm font-medium text-secondary shadow-sm"
             >
               {item}
             </div>

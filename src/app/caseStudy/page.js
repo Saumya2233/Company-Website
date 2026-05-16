@@ -70,20 +70,20 @@ export default function CaseStudyPage() {
   return (
     <main className="bg-white pt-[38px]">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#f8f7ff] py-24">
-        <div className="absolute left-[-120px] top-10 h-80 w-80 rounded-full bg-[var(--primary)]/20 blur-3xl" />
-        <div className="absolute right-[-120px] bottom-10 h-80 w-80 rounded-full bg-pink-300/20 blur-3xl" />
+      <section className="section-lg section-soft relative overflow-hidden">
+        <div className="glow-primary-lg left-[-120px] top-10" />
+        <div className="glow-pink bottom-10 right-[-120px] h-80 w-80" />
 
         <div className="container-custom relative text-center">
-          <span className="inline-flex rounded-full bg-[var(--primary)]/10 px-5 py-2 text-sm font-medium text-[var(--primary)]">
+          <span className="badge-primary">
             Case Studies
           </span>
 
-          <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-semibold leading-tight text-[var(--text-primary)] md:text-6xl">
+          <h1 className="heading-hero mx-auto mt-6 max-w-4xl">
             Real projects, real solutions and measurable business impact.
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-[16px] leading-8 text-[var(--text-secondary)]">
+          <p className="body-copy mx-auto mt-6 max-w-2xl">
             Explore how we help startups and businesses build modern websites,
             dashboards, SaaS products, AI tools and digital platforms.
           </p>
@@ -102,7 +102,7 @@ export default function CaseStudyPage() {
                   key={index}
                   className="rounded-2xl bg-[#f8f7ff] p-6 text-center"
                 >
-                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+                  <div className="icon-bubble mx-auto mb-4">
                     <Icon size={24} />
                   </div>
 
@@ -110,7 +110,7 @@ export default function CaseStudyPage() {
                     {item.value}
                   </h3>
 
-                  <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                  <p className="mt-2 text-sm text-secondary">
                     {item.title}
                   </p>
                 </div>
@@ -124,11 +124,11 @@ export default function CaseStudyPage() {
       <section className="py-5">
         <div className="container-custom">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">
+            <span className="eyebrow">
               Featured Work
             </span>
 
-            <h2 className="mt-5 text-3xl font-semibold text-[var(--text-primary)] md:text-4xl">
+            <h2 className="heading-section mt-5">
               Projects we have built for modern businesses.
             </h2>
           </div>
@@ -178,7 +178,7 @@ export default function CaseStudyPage() {
 
                   <Link
                     href="/contact"
-                    className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-1"
+                    className="btn btn-primary btn-sm btn-lift mt-8 w-fit"
                   >
                     Discuss Similar Project
                     <ArrowRight size={18} />
@@ -195,8 +195,8 @@ export default function CaseStudyPage() {
         <div className="container-custom">
           <div className="relative overflow-hidden rounded-[40px] bg-[#101828] px-8 py-20 text-center text-white shadow-[0_30px_100px_rgba(15,23,42,0.18)] md:px-16">
             {/* Glow Effects */}
-            <div className="absolute left-[-100px] top-[-100px] h-72 w-72 rounded-full bg-[var(--primary)]/20 blur-3xl" />
-            <div className="absolute bottom-[-120px] right-[-80px] h-72 w-72 rounded-full bg-pink-400/10 blur-3xl" />
+            <div className="glow-primary left-[-100px] top-[-100px] bg-[var(--primary)]/20" />
+            <div className="glow-pink bottom-[-120px] right-[-80px] bg-pink-400/10" />
 
             <div className="relative z-10 mx-auto max-w-4xl">
               {/* Small Badge */}
@@ -220,14 +220,14 @@ export default function CaseStudyPage() {
               <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex min-w-[190px] items-center justify-center rounded-full bg-[var(--primary)] px-8 py-4 text-sm font-semibold uppercase tracking-wide text-white shadow-[var(--shadow-primary)] transition duration-300 hover:-translate-y-1 hover:bg-[var(--primary-dark)]"
+                  className="btn btn-primary btn-lg btn-lift min-w-[190px] uppercase tracking-wide"
                 >
                   Start Project
                 </Link>
 
                 <Link
                   href="/portfolio"
-                  className="inline-flex min-w-[190px] items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-4 text-sm font-semibold uppercase tracking-wide text-white backdrop-blur-md transition duration-300 hover:bg-white hover:text-[#111827]"
+                  className="btn btn-lg min-w-[190px] border border-white/20 bg-white/10 uppercase tracking-wide text-white backdrop-blur-md hover:bg-white hover:text-[#111827]"
                 >
                   View Portfolio
                 </Link>

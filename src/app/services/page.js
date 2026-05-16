@@ -88,23 +88,23 @@ export default function ServicesPage() {
   return (
     <main className="bg-white text-[var(--text-primary)]">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#fff7fb] via-white to-[#f6efff] px-6 py-24 md:py-32">
-        <div className="absolute left-[-120px] top-[-120px] h-80 w-80 rounded-full bg-[var(--primary)]/25 blur-3xl" />
-        <div className="absolute bottom-[-120px] right-[-120px] h-80 w-80 rounded-full bg-[var(--secondary)]/25 blur-3xl" />
+      <section className="gradient-soft relative overflow-hidden px-6 py-24 md:py-32">
+        <div className="glow-primary-lg left-[-120px] top-[-120px] bg-[var(--primary)]/25" />
+        <div className="glow-primary-lg bottom-[-120px] right-[-120px] bg-[var(--secondary)]/25" />
 
         <div className="container-custom relative text-center">
-          <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
+          <h1 className="heading-hero mx-auto mt-6 max-w-4xl font-bold">
             Smart Software Services for Modern Businesses
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-[var(--text-secondary)] md:text-lg">
+          <p className="body-copy mx-auto mt-6 max-w-2xl text-base md:text-lg">
             We design and develop websites, mobile apps, SaaS platforms,
             dashboards, cloud solutions, AI automation tools, and custom
             software for growing companies.
           </p>
 
           <div className="mt-9 flex justify-center">
-            <button className="group flex items-center gap-2 b rounded-full bg-[var(--primary)] px-7 py-3 text-sm font-semibold text-white shadow-[var(--shadow-primary)] transition hover:bg-[var(--primary-dark)]">
+            <button className="btn btn-primary btn-md group">
               Discuss Your Project
               <ArrowRight
                 size={18}
@@ -119,15 +119,15 @@ export default function ServicesPage() {
       <section className="px-6 ">
         <div className="container-custom">
           <div className="mb-14 text-center">
-            <span className="text-sm font-semibold uppercase tracking-widest text-[var(--primary)]">
+            <span className="eyebrow tracking-widest">
               What We Offer
             </span>
 
-            <h2 className="mt-3 text-3xl font-bold md:text-5xl">
+            <h2 className="heading-section-lg mt-3 font-bold">
               Our Software Development Services
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-[var(--text-secondary)]">
+            <p className="mx-auto mt-4 max-w-2xl text-secondary">
               From idea to deployment, we provide complete digital solutions
               with clean design, modern technology, and reliable development.
             </p>
@@ -140,15 +140,15 @@ export default function ServicesPage() {
               return (
                 <div
                   key={service.title}
-                  className="group rounded-3xl border border-gray-100 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[var(--primary)]/40 hover:shadow-[var(--shadow-primary)]"
+                  className="card-feature group p-7 hover:border-[var(--primary)]/40"
                 >
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)] transition group-hover:bg-[var(--primary)] group-hover:text-white">
+                  <div className="icon-bubble-lg icon-bubble-hover mb-6">
                     <Icon size={26} />
                   </div>
 
                   <h3 className="text-xl font-bold">{service.title}</h3>
 
-                  <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
+                  <p className="body-copy-sm mt-3">
                     {service.desc}
                   </p>
 
@@ -167,19 +167,19 @@ export default function ServicesPage() {
       </section>
 
       {/* Process */}
-      <section className="bg-gradient-to-br from-[#fff7fb] via-white to-[#f8f1ff] px-6 py-20">
+      <section className="gradient-soft-alt px-6 py-20">
         <div className="container-custom">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <span className="text-sm font-semibold uppercase tracking-widest text-[var(--primary)]">
+              <span className="eyebrow tracking-widest">
                 Our Process
               </span>
 
-              <h2 className="mt-3 text-3xl font-bold md:text-5xl">
+              <h2 className="heading-section-lg mt-3 font-bold">
                 A Simple Process That Delivers Results
               </h2>
 
-              <p className="mt-5 leading-8 text-[var(--text-secondary)]">
+              <p className="mt-5 leading-8 text-secondary">
                 We follow a clear development workflow to understand your
                 requirements, design the right solution, develop it with clean
                 code, test it properly, and support you after launch.
@@ -192,7 +192,7 @@ export default function ServicesPage() {
                   key={item}
                   className="flex items-center gap-5 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--primary)] text-lg font-bold text-white shadow-[var(--shadow-primary)]">
+                  <div className="flex-center h-12 w-12 rounded-full bg-[var(--primary)] text-lg font-bold text-white shadow-[var(--shadow-primary)]">
                     {index + 1}
                   </div>
 
@@ -207,11 +207,7 @@ export default function ServicesPage() {
       {/* Industries */}
       <section className="pb-10">
         <div
-          className="container-custom rounded-[2rem] p-8   text-white shadow-[var(--shadow-primary)] md:p-14"
-          style={{
-            background:
-              "linear-gradient(135deg, var(--primary-dark), var(--primary), var(--secondary))",
-          }}
+          className="container-custom gradient-primary rounded-[2rem] p-8 text-white shadow-[var(--shadow-primary)] md:p-14"
         >
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>

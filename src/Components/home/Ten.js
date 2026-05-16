@@ -1,85 +1,83 @@
-import { Mail, Phone, MapPin, ArrowRight, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 export default function ContactSection() {
   return (
-    <section className="relative overflow-hidden bg-white p-8">
+    <section className="relative overflow-hidden bg-white py-16 md:py-24">
       {/* Background Blur */}
-      <div className="absolute left-[-100px] top-10 h-72 w-72 rounded-full bg-[var(--primary)]/10 blur-3xl" />
+      <div className="glow-primary left-[-100px] top-10 h-56 w-56 bg-[var(--primary)]/10 md:h-72 md:w-72" />
 
       <div className="container-custom relative">
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex rounded-full bg-[var(--primary)]/10 px-5 py-2 text-xs font-semibold tracking-[4px] text-[var(--primary)]">
+          <span className="badge-primary-compact text-[10px] md:text-xs">
             CONTACT
           </span>
 
-          <h2 className="mt-6 text-xl font-semibold leading-tight text-[var(--text-primary)] md:text-5xl">
-            Let’s build something
-           
-            amazing 
+          <h2 className="heading-section mt-5 sm:text-4xl md:mt-6 md:text-5xl">
+            Let’s build something amazing
           </h2>
 
-          <p className="mt-2 text-[15px] leading-7 text-[var(--text-secondary)]">
+          <p className="body-copy-sm mt-4 md:text-[15px]">
             Have an idea, project or hiring requirement? Let’s connect and
             discuss how Mxpertz can help your business grow faster.
           </p>
         </div>
 
         {/* Main Grid */}
-        <div className="mt-8 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="mt-12 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8">
           {/* Left Contact Info */}
-          <div className="rounded-[32px] border border-gray-100 bg-[#faf7ff] p-8 shadow-sm">
-            <h3 className="text-2xl font-semibold text-[var(--text-primary)]">
+          <div className="rounded-3xl border border-gray-100 bg-[#faf7ff] p-6 shadow-sm md:p-8">
+            <h3 className="text-xl font-semibold text-[var(--text-primary)] md:text-2xl">
               Contact Information
             </h3>
 
-            <p className="mt-4 text-[15px] leading-7 text-[var(--text-secondary)]">
+            <p className="body-copy-sm mt-3 md:mt-4 md:text-[15px]">
               Reach out anytime. We usually respond within a few hours.
             </p>
 
-            <div className="mt-10 space-y-5">
+            <div className="mt-8 space-y-4 md:mt-10 md:space-y-5">
               {/* Email */}
-              <div className="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-sm">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+              <div className="contact-info-item">
+                <div className="flex-center h-11 w-11 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] md:h-12 md:w-12">
                   <Mail size={20} />
                 </div>
 
                 <div>
-                  <p className="text-sm text-[var(--text-secondary)]">Email</p>
+                  <p className="text-sm text-secondary">Email</p>
 
-                  <h4 className="mt-1 font-medium text-[var(--text-primary)]">
+                  <h4 className="mt-1 text-sm font-medium text-[var(--text-primary)] md:text-base">
                     hello@mxpertz.com
                   </h4>
                 </div>
               </div>
 
               {/* Phone */}
-              <div className="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-sm">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+              <div className="contact-info-item">
+                <div className="flex-center h-11 w-11 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] md:h-12 md:w-12">
                   <Phone size={20} />
                 </div>
 
                 <div>
-                  <p className="text-sm text-[var(--text-secondary)]">Phone</p>
+                  <p className="text-sm text-secondary">Phone</p>
 
-                  <h4 className="mt-1 font-medium text-[var(--text-primary)]">
+                  <h4 className="mt-1 text-sm font-medium text-[var(--text-primary)] md:text-base">
                     +91 98765 43210
                   </h4>
                 </div>
               </div>
 
               {/* Location */}
-              <div className="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-sm">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+              <div className="contact-info-item">
+                <div className="flex-center h-11 w-11 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] md:h-12 md:w-12">
                   <MapPin size={20} />
                 </div>
 
                 <div>
-                  <p className="text-sm text-[var(--text-secondary)]">
+                  <p className="text-sm text-secondary">
                     Location
                   </p>
 
-                  <h4 className="mt-1 font-medium text-[var(--text-primary)]">
+                  <h4 className="mt-1 text-sm font-medium text-[var(--text-primary)] md:text-base">
                     Indore, Madhya Pradesh
                   </h4>
                 </div>
@@ -88,58 +86,58 @@ export default function ContactSection() {
           </div>
 
           {/* Right Form */}
-          <div className="rounded-[32px] border border-gray-100 bg-white p-8 shadow-sm">
+          <div className="form-card">
             <div className="grid gap-5 md:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-medium text-[var(--text-primary)]">
+                <label className="form-label">
                   Full Name
                 </label>
 
                 <input
                   type="text"
                   placeholder="Enter your name"
-                  className="h-14 w-full rounded-2xl border border-gray-200 px-5 outline-none transition focus:border-[var(--primary)]"
+                  className="form-input"
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-[var(--text-primary)]">
+                <label className="form-label">
                   Email Address
                 </label>
 
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="h-14 w-full rounded-2xl border border-gray-200 px-5 outline-none transition focus:border-[var(--primary)]"
+                  className="form-input"
                 />
               </div>
             </div>
 
             <div className="mt-5">
-              <label className="mb-2 block text-sm font-medium text-[var(--text-primary)]">
+              <label className="form-label">
                 Subject
               </label>
 
               <input
                 type="text"
                 placeholder="Project discussion"
-                className="h-14 w-full rounded-2xl border border-gray-200 px-5 outline-none transition focus:border-[var(--primary)]"
+                className="form-input"
               />
             </div>
 
             <div className="mt-5">
-              <label className="mb-2 block text-sm font-medium text-[var(--text-primary)]">
+              <label className="form-label">
                 Message
               </label>
 
               <textarea
                 rows={6}
                 placeholder="Tell us about your project..."
-                className="w-full rounded-2xl border border-gray-200 p-5 outline-none transition focus:border-[var(--primary)]"
+                className="form-textarea"
               />
             </div>
 
-            <button className="mt-7 inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-7 py-4 text-sm font-medium text-white transition hover:bg-[var(--primary-dark)]">
+            <button className="btn btn-primary btn-md mt-6 w-full sm:w-auto">
               Send Message
               <Send size={17} />
             </button>

@@ -29,21 +29,21 @@ export default function AboutPage() {
   return (
     <main className="bg-white pt-[38px]">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#f8f7ff] py-24">
-        <div className="absolute left-[-120px] top-20 h-80 w-80 rounded-full bg-[var(--primary)]/15 blur-3xl" />
+      <section className="section-lg section-soft relative overflow-hidden">
+        <div className="glow-primary-lg left-[-120px] top-20 bg-[var(--primary)]/15" />
 
-        <div className="container-custom relative grid items-center gap-14 lg:grid-cols-2">
+        <div className="container-custom grid-hero relative">
           {/* Left Content */}
           <div>
-            <span className="inline-flex rounded-full bg-[var(--primary)]/10 px-5 py-2 text-sm font-medium text-[var(--primary)]">
+            <span className="badge-primary">
               About Mxpertz Infolabs
             </span>
 
-            <h1 className="mt-6 text-4xl font-semibold leading-tight text-[var(--text-primary)] md:text-5xl">
+            <h1 className="heading-hero mt-6 md:text-5xl">
               We create digital solutions that help businesses grow faster.
             </h1>
 
-            <p className="mt-6 text-[16px] leading-8 text-[var(--text-secondary)]">
+            <p className="body-copy mt-6">
               Mxpertz Infolabs is a software development company that helps
               startups, businesses and enterprises build modern digital
               products. We provide web development, mobile apps, SaaS products,
@@ -51,7 +51,7 @@ export default function AboutPage() {
               hiring support.
             </p>
 
-            <p className="mt-4 text-[16px] leading-8 text-[var(--text-secondary)]">
+            <p className="body-copy mt-4">
               Founded with the vision to make technology simple and accessible,
               we focus on building clean, scalable and business-focused software
               solutions.
@@ -72,7 +72,7 @@ export default function AboutPage() {
               <h3 className="text-4xl font-semibold text-[var(--primary)]">
                 50+
               </h3>
-              <p className="mt-2 text-sm text-[var(--text-secondary)]">
+              <p className="mt-2 text-sm text-secondary">
                 Projects Delivered
               </p>
             </div>
@@ -95,17 +95,17 @@ export default function AboutPage() {
               />
             </div>
 
-            <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">
+            <span className="eyebrow">
               Who We Are
             </span>
 
-            <h2 className="mt-5 text-3xl font-semibold leading-tight text-[var(--text-primary)] md:text-4xl">
+            <h2 className="heading-section mt-5">
               A technology partner for startups and growing companies.
             </h2>
           </div>
 
           <div>
-            <p className="text-[16px] leading-8 text-[var(--text-secondary)]">
+            <p className="body-copy">
               We work as a complete technology partner, from understanding your
               business idea to planning, designing, developing, testing and
               launching the final product. Our team believes in simple
@@ -113,7 +113,7 @@ export default function AboutPage() {
               delivery.
             </p>
 
-            <p className="mt-4 text-[16px] leading-8 text-[var(--text-secondary)]">
+            <p className="body-copy mt-4">
               Whether you need a business website, custom dashboard, SaaS
               platform, AI workflow, mobile app or dedicated developers, Mxpertz
               helps you build it with confidence.
@@ -125,21 +125,21 @@ export default function AboutPage() {
       {/* Mission Vision */}
       {/* Mission Vision */}
       {/* Mission Vision */}
-      <section className="relative overflow-hidden bg-[#f8f7ff] py-8">
-        <div className="absolute left-[-120px] top-10 h-72 w-72 rounded-full bg-[var(--primary)]/15 blur-3xl" />
-        <div className="absolute right-[-120px] bottom-10 h-72 w-72 rounded-full bg-pink-300/20 blur-3xl" />
+      <section className="section-sm section-soft relative overflow-hidden">
+        <div className="glow-primary left-[-120px] top-10" />
+        <div className="glow-pink bottom-10 right-[-120px]" />
 
         <div className="container-custom relative">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="inline-flex rounded-full bg-[var(--primary)]/10 px-5 py-2 text-sm font-medium text-[var(--primary)]">
+            <span className="badge-primary">
               Mission & Vision
             </span>
 
-            <h2 className="mt-5 text-3xl font-semibold leading-tight text-[var(--text-primary)] md:text-4xl">
+            <h2 className="heading-section mt-5">
               Driven by purpose, focused on innovation.
             </h2>
 
-            <p className="mt-4 text-[15px] leading-7 text-[var(--text-secondary)]">
+            <p className="body-copy-sm mt-4 text-[15px]">
               We help businesses build reliable digital products with modern
               design, scalable technology and long-term support.
             </p>
@@ -160,7 +160,7 @@ export default function AboutPage() {
                     Our Mission
                   </h3>
 
-                  <p className="mt-4 text-[15px] leading-8 text-[var(--text-secondary)]">
+                  <p className="body-copy mt-4 text-[15px]">
                     Our mission is to turn business ideas into powerful digital
                     products through clean development, modern technology and
                     reliable support.
@@ -212,14 +212,14 @@ export default function AboutPage() {
       </section>
 
       {/* Highlights */}
-      <section className="py-8">
+      <section className="section-sm">
         <div className="container-custom">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex rounded-full bg-[var(--primary)]/10 px-5 py-2 text-sm font-medium text-[var(--primary)]">
+            <span className="badge-primary">
               What Makes Us Different
             </span>
 
-            <h2 className="mt-6 text-3xl font-semibold text-[var(--text-primary)] md:text-4xl">
+            <h2 className="heading-section mt-6">
               We build with quality, speed and clarity.
             </h2>
           </div>
@@ -231,9 +231,9 @@ export default function AboutPage() {
               return (
                 <div
                   key={index}
-                  className="rounded-[26px] border border-gray-100 bg-white p-6 shadow-sm transition hover:-translate-y-2 hover:shadow-xl"
+                  className="card-feature group rounded-[26px] hover:shadow-xl"
                 >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+                  <div className="icon-bubble mb-5">
                     <Icon size={24} />
                   </div>
 
@@ -241,7 +241,7 @@ export default function AboutPage() {
                     {item.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
+                  <p className="body-copy-sm mt-3">
                     {item.desc}
                   </p>
                 </div>

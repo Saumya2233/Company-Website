@@ -5,7 +5,7 @@ import { images } from "@/constant/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-white pt-[38px]">
+    <section className="relative min-h-screen overflow-hidden bg-white pt-[78px]">
       {/* Decorative Images */}
       <Image
         src={images.circle1}
@@ -50,7 +50,7 @@ export default function Hero() {
 
       {/* Main Content */}
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-78px)] max-w-6xl flex-col items-center justify-center px-6 text-center">
-        <span className="mb-6 rounded-full bg-[var(--primary)]/10 px-6 py-2 text-sm font-semibold text-[var(--primary)]">
+        <span className="badge-primary mb-6 px-6 font-semibold">
           Software Development • AI Solutions • Tech Hiring
         </span>
 
@@ -58,23 +58,23 @@ export default function Hero() {
           Building Digital Solutions That Help Businesses Grow
         </h1>
 
-        <p className="mt-7 max-w-3xl text-base leading-8 text-[var(--text-secondary)] md:text-lg">
+        <p className="body-copy mx-auto mt-7 max-w-3xl text-base md:text-lg">
           Mxpertz creates modern websites, web applications, AI-powered
           products, and connects companies with skilled interns and tech
           professionals.
         </p>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <div className="mt-10 flex flex-wrap justify-center gap-4 pb-3">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-black px-8 py-4 text-sm font-semibold text-white transition hover:bg-[var(--primary)]"
+            className="btn btn-dark btn-lg"
           >
             Get Started <ArrowRight size={18} />
           </Link>
 
           <Link
             href="/services"
-            className="rounded-full border border-gray-200 bg-white px-8 py-4 text-sm font-semibold text-black shadow-md transition hover:border-[var(--primary)] hover:text-[var(--primary)]"
+            className="btn btn-outline btn-lg text-black shadow-md"
           >
             Explore Services
           </Link>

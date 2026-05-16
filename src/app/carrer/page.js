@@ -74,13 +74,13 @@ export default function CareersPage() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <button className="rounded-full border border-[#A572CF]/20 bg-white px-8 py-4 text-sm font-semibold text-[#A572CF] transition hover:border-[#A572CF]">
+              <button className="btn btn-outline-primary btn-lg">
                 <a href="#jobs" >
                   Open Positions
                 </a>
               </button>
 
-              <button className="rounded-full border border-[#A572CF]/20 bg-white px-8 py-4 text-sm font-semibold text-[#A572CF] transition hover:border-[#A572CF]">
+              <button className="btn btn-outline-primary btn-lg">
                 Learn More
               </button>
             </div>
@@ -89,28 +89,28 @@ export default function CareersPage() {
             <div className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4">
               <div>
                 <h3 className="text-3xl font-bold text-[#A572CF]">25+</h3>
-                <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                <p className="mt-2 text-sm text-secondary">
                   Team Members
                 </p>
               </div>
 
               <div>
                 <h3 className="text-3xl font-bold text-[#E87779]">120+</h3>
-                <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                <p className="mt-2 text-sm text-secondary">
                   Projects Delivered
                 </p>
               </div>
 
               <div>
                 <h3 className="text-3xl font-bold text-[#A572CF]">10+</h3>
-                <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                <p className="mt-2 text-sm text-secondary">
                   Countries Served
                 </p>
               </div>
 
               <div>
                 <h3 className="text-3xl font-bold text-[#E87779]">100%</h3>
-                <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                <p className="mt-2 text-sm text-secondary">
                   Remote Friendly
                 </p>
               </div>
@@ -179,7 +179,7 @@ export default function CareersPage() {
               </h2>
             </div>
 
-            <p className="max-w-lg text-[16px] leading-7 text-[var(--text-secondary)]">
+            <p className="body-copy-sm max-w-lg text-[16px]">
               Join our growing team and work on modern technologies, scalable
               products and innovative digital experiences.
             </p>
@@ -187,9 +187,9 @@ export default function CareersPage() {
 
           <div className="space-y-6">
             {/* Job Card */}
-            <div className="group flex flex-col gap-6 rounded-3xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl lg:flex-row lg:items-center lg:justify-between">
+            <div className="card-job">
               <div className="flex items-start gap-5">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#A572CF]/10 text-2xl">
+                <div className="flex-center h-16 w-16 rounded-2xl bg-[#A572CF]/10 text-2xl">
                   💼
                 </div>
 
@@ -199,30 +199,30 @@ export default function CareersPage() {
                   </h3>
 
                   <div className="mt-3 flex flex-wrap gap-3">
-                    <span className="rounded-full bg-[#A572CF]/10 px-4 py-2 text-xs font-semibold text-[#A572CF]">
+                    <span className="tag-primary">
                       Full Time
                     </span>
 
-                    <span className="rounded-full bg-[#E87779]/10 px-4 py-2 text-xs font-semibold text-[#E87779]">
+                    <span className="tag-secondary">
                       Remote
                     </span>
 
-                    <span className="rounded-full bg-gray-100 px-4 py-2 text-xs font-semibold text-gray-600">
+                    <span className="tag-muted">
                       1-3 Years
                     </span>
                   </div>
                 </div>
               </div>
 
-              <button className="rounded-full bg-gradient-to-r from-[#A572CF] to-[#E87779] px-7 py-3 text-sm font-semibold text-white transition hover:scale-105">
+              <button className="btn btn-gradient btn-md">
                 Apply Now
               </button>
             </div>
 
             {/* Job Card */}
-            <div className="group flex flex-col gap-6 rounded-3xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl lg:flex-row lg:items-center lg:justify-between">
+            <div className="card-job">
               <div className="flex items-start gap-5">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#E87779]/10 text-2xl">
+                <div className="flex-center h-16 w-16 rounded-2xl bg-[#E87779]/10 text-2xl">
                   📦
                 </div>
 
@@ -232,30 +232,30 @@ export default function CareersPage() {
                   </h3>
 
                   <div className="mt-3 flex flex-wrap gap-3">
-                    <span className="rounded-full bg-[#A572CF]/10 px-4 py-2 text-xs font-semibold text-[#A572CF]">
+                    <span className="tag-primary">
                       Full Time
                     </span>
 
-                    <span className="rounded-full bg-[#E87779]/10 px-4 py-2 text-xs font-semibold text-[#E87779]">
+                    <span className="tag-secondary">
                       Hybrid
                     </span>
 
-                    <span className="rounded-full bg-gray-100 px-4 py-2 text-xs font-semibold text-gray-600">
+                    <span className="tag-muted">
                       2-5 Years
                     </span>
                   </div>
                 </div>
               </div>
 
-              <button className="rounded-full bg-gradient-to-r from-[#A572CF] to-[#E87779] px-7 py-3 text-sm font-semibold text-white transition hover:scale-105">
+              <button className="btn btn-gradient btn-md">
                 Apply Now
               </button>
             </div>
 
             {/* Job Card */}
-            <div className="group flex flex-col gap-6 rounded-3xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl lg:flex-row lg:items-center lg:justify-between">
+            <div className="card-job">
               <div className="flex items-start gap-5">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#A572CF]/10 text-2xl">
+                <div className="flex-center h-16 w-16 rounded-2xl bg-[#A572CF]/10 text-2xl">
                   💻
                 </div>
 
@@ -265,22 +265,22 @@ export default function CareersPage() {
                   </h3>
 
                   <div className="mt-3 flex flex-wrap gap-3">
-                    <span className="rounded-full bg-[#A572CF]/10 px-4 py-2 text-xs font-semibold text-[#A572CF]">
+                    <span className="tag-primary">
                       Full Time
                     </span>
 
-                    <span className="rounded-full bg-[#E87779]/10 px-4 py-2 text-xs font-semibold text-[#E87779]">
+                    <span className="tag-secondary">
                       On Site
                     </span>
 
-                    <span className="rounded-full bg-gray-100 px-4 py-2 text-xs font-semibold text-gray-600">
+                    <span className="tag-muted">
                       1-4 Years
                     </span>
                   </div>
                 </div>
               </div>
 
-              <button className="rounded-full bg-gradient-to-r from-[#A572CF] to-[#E87779] px-7 py-3 text-sm font-semibold text-white transition hover:scale-105">
+              <button className="btn btn-gradient btn-md">
                 Apply Now
               </button>
             </div>

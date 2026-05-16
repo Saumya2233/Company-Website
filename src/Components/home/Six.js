@@ -52,7 +52,7 @@ export default function IndustriesSection() {
         <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           {/* Left Content */}
           <div>
-            <span className="text-xs font-bold uppercase tracking-[4px] text-[var(--primary)]">
+            <span className="eyebrow text-xs font-bold">
               Industries
             </span>
 
@@ -62,7 +62,7 @@ export default function IndustriesSection() {
               Impacted
             </h2>
 
-            <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--primary-dark)]">
+            <button className="btn btn-primary btn-sm mt-8">
               Know our process
               <ArrowRight size={16} />
             </button>
@@ -79,7 +79,7 @@ export default function IndustriesSection() {
                   className="group flex flex-col items-center rounded-2xl border border-transparent p-4 text-center transition-all duration-300 hover:border-[var(--primary)]/20 hover:bg-white hover:shadow-lg"
                 >
                   {/* Icon */}
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-[var(--primary)] shadow-md transition-all duration-300 group-hover:bg-[var(--primary)] group-hover:text-white">
+                  <div className="flex-center h-14 w-14 rounded-full bg-white text-[var(--primary)] shadow-md transition-all duration-300 group-hover:bg-[var(--primary)] group-hover:text-white">
                     <Icon size={26} strokeWidth={1.7} />
                   </div>
 

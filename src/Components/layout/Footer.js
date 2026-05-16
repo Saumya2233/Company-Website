@@ -37,7 +37,7 @@ export default function Footer() {
                 (Icon, index) => (
                   <div
                     key={index}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-[var(--primary)]"
+                    className="flex-center h-10 w-10 rounded-full bg-white/10 text-white transition hover:bg-[var(--primary)]"
                   >
                     <Icon size={16} />
                   </div>

@@ -43,14 +43,14 @@ export default function BlogPage() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#faf7ff] py-24">
-      <div className="absolute right-[-120px] top-[-120px] h-80 w-80 rounded-full bg-[var(--primary)]/15 blur-3xl" />
-      <div className="absolute bottom-[-120px] left-[-120px] h-80 w-80 rounded-full bg-[var(--secondary)]/15 blur-3xl" />
+    <section className="section-lg section-lavender relative overflow-hidden">
+      <div className="glow-primary-lg right-[-120px] top-[-120px] bg-[var(--primary)]/15" />
+      <div className="glow-secondary bottom-[-120px] left-[-120px] h-80 w-80" />
 
-      <div className="container mx-auto px-6">
+      <div className="container-custom">
         {/* Heading */}
         <div className="mb-16 flex flex-col items-center justify-center text-center">
-          <span className="rounded-full bg-[var(--primary)]/10 px-5 py-2 text-sm font-semibold text-[var(--primary)]">
+          <span className="badge-primary font-semibold">
             Latest Insights & Articles
           </span>
 
@@ -59,7 +59,7 @@ export default function BlogPage() {
             <span className="text-[var(--primary)]"> Industry Insights</span>
           </h2>
 
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--text-secondary)]">
+          <p className="body-copy-lg mt-6 max-w-3xl">
             Discover AI trends, SaaS strategies, modern web technologies, mobile
             app innovations, and digital transformation insights from MXpertz.
           </p>
@@ -100,7 +100,7 @@ export default function BlogPage() {
                     {blog.description}
                   </p>
 
-                  <button className="mt-4 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold backdrop-blur-md transition hover:bg-[var(--primary)] hover:text-white">
+                  <button className="btn mt-4 rounded-full border border-white/20 bg-white/10 px-6 py-3 backdrop-blur-md hover:bg-[var(--primary)] hover:text-white">
                     Read More
                   </button>
                 </div>

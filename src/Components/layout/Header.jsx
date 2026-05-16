@@ -39,7 +39,7 @@ export default function Header() {
 
     return (
         <header className="fixed left-0 top-0 z-50 w-full bg-white/90 backdrop-blur-md">
-            <div className="mx-auto flex h-[78px] max-w-7xl items-center justify-between px-6 lg:px-10">
+            <div className="container-page flex h-[78px] items-center justify-between">
                 <Link href="/" className="relative h-12 w-40">
                     <Image
                         src={images.logo}
@@ -51,12 +51,12 @@ export default function Header() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden items-center gap-2 lg:flex">
+                <nav className="hide-mobile items-center gap-2">
                     {navLinks.map((item, index) => (
                         <div key={item.name} className="group relative">
                             <Link
                                 href={item.href}
-                                className={`flex items-center gap-1 rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ${pathname === item.href
+                                className={`btn btn-sm gap-1 ${pathname === item.href
                                         ? "bg-[var(--primary)] text-white shadow-[var(--shadow-primary)]"
                                         : "text-black hover:bg-[var(--primary)] hover:text-white"
                                     }`}
@@ -76,7 +76,7 @@ export default function Header() {
                                         <Link
                                             key={dropItem.name}
                                             href={dropItem.href}
-                                            className="block rounded-xl px-2 py-1 text-[13px] font-medium text-[var(--text-secondary)] transition hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
+                                            className="block rounded-xl px-2 py-1 text-[13px] font-medium text-secondary transition hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
                                         >
                                             {dropItem.name}
                                         </Link>
@@ -89,12 +89,12 @@ export default function Header() {
 
                 <Link
                     href="/contact"
-                    className="hidden rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[var(--primary)] lg:inline-flex"
+                    className="btn btn-dark btn-sm hidden lg:inline-flex"
                 >
                     Contact Us
                 </Link>
 
-                <button onClick={() => setMobileMenu(!mobileMenu)} className="lg:hidden">
+                <button onClick={() => setMobileMenu(!mobileMenu)} className="show-mobile">
                     {mobileMenu ? <X size={28} /> : <Menu size={28} />}
                 </button>
             </div>
@@ -138,7 +138,7 @@ export default function Header() {
                                                         key={dropItem.name}
                                                         href={dropItem.href}
                                                         onClick={() => setMobileMenu(false)}
-                                                        className="block rounded-xl px-3 py-2 text-sm font-medium text-[var(--text-secondary)]"
+                                                        className="block rounded-xl px-3 py-2 text-sm font-medium text-secondary"
                                                     >
                                                         {dropItem.name}
                                                     </Link>
@@ -161,7 +161,7 @@ export default function Header() {
                         <Link
                             href="/contact"
                             onClick={() => setMobileMenu(false)}
-                            className="mt-3 rounded-full bg-black px-5 py-3 text-center text-sm font-semibold text-white"
+                            className="btn btn-dark btn-sm mt-3"
                         >
                             Contact Us
                         </Link>

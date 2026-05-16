@@ -58,15 +58,15 @@ export default function TestimonialsSection() {
         {/* Heading */}
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="max-w-2xl">
-            <span className="inline-flex rounded-full bg-[var(--primary)]/10 px-5 py-2 text-sm font-semibold text-[var(--primary)]">
+            <span className="badge-primary font-semibold">
               Testimonials
             </span>
 
-            <h2 className="mt-5 text-4xl font-extrabold leading-tight text-[var(--text-primary)] md:text-5xl">
+            <h2 className="heading-section-lg mt-5">
               What our clients say
             </h2>
 
-            <p className="mt-5 text-lg leading-8 text-[var(--text-secondary)]">
+            <p className="body-copy-lg mt-5">
               Trusted by startups and businesses for building modern digital
               products and scalable solutions.
             </p>
@@ -76,14 +76,14 @@ export default function TestimonialsSection() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => scroll("left")}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-[var(--text-primary)] shadow-sm transition hover:border-[var(--primary)] hover:text-[var(--primary)]"
+              className="flex-center h-10 w-10 rounded-full border border-gray-200 bg-white text-primary shadow-sm transition hover:border-[var(--primary)] hover:text-[var(--primary)]"
             >
               <ChevronLeft size={18} />
             </button>
 
             <button
               onClick={() => scroll("right")}
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--primary)] text-white shadow-sm transition hover:bg-[var(--primary-dark)]"
+              className="flex-center h-10 w-10 rounded-full bg-[var(--primary)] text-white shadow-sm transition hover:bg-[var(--primary-dark)]"
             >
               <ChevronRight size={18} />
             </button>
@@ -98,7 +98,7 @@ export default function TestimonialsSection() {
           {testimonials.map((item, index) => (
             <div
               key={index}
-              className="min-w-[340px]  rounded-[30px] border border-gray-100 bg-white p-7 shadow-lg"
+              className="min-w-[340px] rounded-[30px] border border-gray-100 bg-white p-7 shadow-lg"
             >
               {/* Stars */}
               <div className="flex gap-1 text-yellow-400">
@@ -108,8 +108,8 @@ export default function TestimonialsSection() {
               </div>
 
               {/* Review */}
-              <p className="mt-5 leading-7 text-[var(--text-secondary)]">
-                "{item.review}"
+              <p className="mt-5 leading-7 text-secondary">
+                &quot;{item.review}&quot;
               </p>
 
               {/* User */}
@@ -121,11 +121,11 @@ export default function TestimonialsSection() {
                 />
 
                 <div>
-                  <h3 className="font-bold text-[var(--text-primary)]">
+                  <h3 className="font-bold text-primary">
                     {item.name}
                   </h3>
 
-                  <p className="text-sm text-[var(--text-secondary)]">
+                  <p className="text-sm text-secondary">
                     {item.role}
                   </p>
                 </div>

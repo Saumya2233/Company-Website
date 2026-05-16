@@ -15,35 +15,35 @@ export default async function ServiceDetails({ params }) {
   return (
     <main className="bg-white pt-[28px]">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#f8f7ff] py-24">
-        <div className="absolute left-[-120px] top-10 h-80 w-80 rounded-full bg-[var(--primary)]/20 blur-3xl" />
-        <div className="absolute right-[-120px] bottom-10 h-80 w-80 rounded-full bg-pink-300/20 blur-3xl" />
+      <section className="section-lg section-soft relative overflow-hidden">
+        <div className="glow-primary-lg left-[-120px] top-10" />
+        <div className="glow-pink bottom-10 right-[-120px] h-80 w-80" />
 
-        <div className="container-custom relative grid items-center gap-14 lg:grid-cols-2">
+        <div className="container-custom grid-hero relative">
           <div>
-            <span className="inline-flex rounded-full bg-[var(--primary)]/10 px-5 py-2 text-sm font-medium text-[var(--primary)]">
+            <span className="badge-primary">
               {service.title}
             </span>
 
-            <h1 className="mt-6 text-4xl font-semibold leading-tight text-[var(--text-primary)] md:text-6xl">
+            <h1 className="heading-hero mt-6">
               Professional {service.title} Services for Modern Businesses
             </h1>
 
-            <p className="mt-6 text-[16px] leading-8 text-[var(--text-secondary)]">
+            <p className="body-copy mt-6">
               {service.description}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="rounded-full bg-[var(--primary)] px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--primary)]/25 transition hover:-translate-y-1"
+                className="btn btn-primary btn-md btn-lift"
               >
                 Hire Now
               </Link>
 
               <Link
                 href="/portfolio"
-                className="rounded-full border border-gray-200 bg-white px-7 py-3 text-sm font-semibold text-[var(--text-primary)] transition hover:-translate-y-1 hover:shadow-lg"
+                className="btn btn-outline btn-md btn-lift hover:shadow-lg"
               >
                 View Work
               </Link>
@@ -64,14 +64,14 @@ export default async function ServiceDetails({ params }) {
 
             <div className="absolute -bottom-7 -left-6 rounded-3xl bg-white p-5 shadow-2xl">
               <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+                <div className="icon-bubble">
                   <Code2 size={24} />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-[var(--text-primary)]">
                     Expert Team
                   </h3>
-                  <p className="text-sm text-[var(--text-secondary)]">
+                  <p className="text-sm text-secondary">
                     Skilled developers
                   </p>
                 </div>
@@ -90,17 +90,17 @@ export default async function ServiceDetails({ params }) {
           <div className="grid items-center gap-16 lg:grid-cols-2">
             {/* Left Content */}
             <div>
-              <span className="inline-flex rounded-full bg-[var(--primary)]/10 px-5 py-2 text-sm font-semibold uppercase tracking-[3px] text-[var(--primary)]">
+              <span className="badge-primary font-semibold uppercase tracking-[3px]">
                 What We Provide
               </span>
 
-              <h2 className="mt-6 max-w-xl text-4xl font-semibold leading-tight text-[var(--text-primary)] md:text-5xl">
+              <h2 className="heading-section-lg mt-6 max-w-xl font-semibold">
                 Complete{" "}
                 <span className="text-[var(--primary)]">{service.title}</span>{" "}
                 solutions built for modern businesses.
               </h2>
 
-              <p className="mt-6 max-w-2xl text-[17px] leading-8 text-[var(--text-secondary)]">
+              <p className="body-copy mt-6 max-w-2xl text-[17px]">
                 We create scalable, secure, and high-performing digital
                 solutions tailored to your business goals. From planning and
                 architecture to deployment and long-term support, our team
@@ -110,32 +110,32 @@ export default async function ServiceDetails({ params }) {
 
               {/* Stats */}
               <div className="mt-5 grid grid-cols-2 gap-6 md:grid-cols-3">
-                <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+                <div className="card-stat">
                   <h3 className="text-3xl font-bold text-[var(--primary)]">
                     99%
                   </h3>
 
-                  <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                  <p className="mt-2 text-sm text-secondary">
                     Client Satisfaction
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+                <div className="card-stat">
                   <h3 className="text-3xl font-bold text-[var(--primary)]">
                     24/7
                   </h3>
 
-                  <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                  <p className="mt-2 text-sm text-secondary">
                     Technical Support
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+                <div className="card-stat">
                   <h3 className="text-3xl font-bold text-[var(--primary)]">
                     100+
                   </h3>
 
-                  <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                  <p className="mt-2 text-sm text-secondary">
                     Successful Projects
                   </p>
                 </div>
@@ -156,9 +156,9 @@ export default async function ServiceDetails({ params }) {
               ).map((feature, index) => (
                 <div
                   key={index}
-                  className="group rounded-3xl border border-gray-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[var(--primary)]/30 hover:shadow-[var(--shadow-primary)]"
+                  className="card-feature group"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)] transition group-hover:bg-[var(--primary)] group-hover:text-white">
+                  <div className="icon-bubble icon-bubble-hover">
                     <CheckCircle size={22} />
                   </div>
 
@@ -166,7 +166,7 @@ export default async function ServiceDetails({ params }) {
                     {feature}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
+                  <p className="body-copy-sm mt-3">
                     High-quality implementation focused on scalability,
                     performance, security, and seamless user experience.
                   </p>
@@ -178,10 +178,10 @@ export default async function ServiceDetails({ params }) {
       </section>
 
       {/* Why Choose */}
-      <section className="relative overflow-hidden bg-[#f8f7ff] py-20">
+      <section className="section section-soft relative overflow-hidden">
         {/* Background Blur */}
-        <div className="absolute left-[-120px] top-[-120px] h-72 w-72 rounded-full bg-[var(--primary)]/15 blur-3xl" />
-        <div className="absolute bottom-[-120px] right-[-120px] h-72 w-72 rounded-full bg-[var(--secondary)]/15 blur-3xl" />
+        <div className="glow-primary left-[-120px] top-[-120px]" />
+        <div className="glow-secondary bottom-[-120px] right-[-120px]" />
 
         <div className="container-custom relative">
           <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
@@ -220,7 +220,7 @@ export default async function ServiceDetails({ params }) {
                         {item.title}
                       </h3>
 
-                      <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
+                      <p className="body-copy-sm mt-3">
                         {item.desc}
                       </p>
                     </div>
@@ -228,13 +228,10 @@ export default async function ServiceDetails({ params }) {
                 );
               })}
             </div>
-            
 
             {/* Right Content */}
             <div>
-            
-
-              <h2 className="mt-6 text-4xl font-semibold leading-tight text-[var(--text-primary)] md:text-5xl">
+              <h2 className="heading-section-lg mt-6 font-semibold">
                 Trusted technology partner for{" "}
                 <span className="text-[var(--primary)]">
                   modern digital solutions
@@ -242,7 +239,7 @@ export default async function ServiceDetails({ params }) {
                 .
               </h2>
 
-              <p className="mt-6 text-base leading-8 text-[var(--text-secondary)]">
+              <p className="body-copy mt-6 text-base">
                 We help startups, enterprises, and growing businesses transform
                 ideas into scalable digital products with premium design, clean
                 development, strong architecture, and long-term support.
@@ -255,7 +252,7 @@ export default async function ServiceDetails({ params }) {
                     50+
                   </h3>
 
-                  <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                  <p className="mt-2 text-sm text-secondary">
                     Successful Projects
                   </p>
                 </div>
@@ -265,7 +262,7 @@ export default async function ServiceDetails({ params }) {
                     24/7
                   </h3>
 
-                  <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                  <p className="mt-2 text-sm text-secondary">
                     Technical Support
                   </p>
                 </div>
@@ -276,7 +273,7 @@ export default async function ServiceDetails({ params }) {
           </div>
           <div className="mt-10 flex justify-center">
             <button className="btn btn-primary btn-lg">
-              <Link href="/contact" ></Link>
+              <Link href="/contact"></Link>
               Start Your Project
             </button>
           </div>
@@ -284,8 +281,8 @@ export default async function ServiceDetails({ params }) {
       </section>
 
       {/* CTA */}
-      <section className="border-black  bg-black" Link="/contact">
-        <div className="relative h-[500px] w-full overflow-hidden">
+      <section className="bg-black">
+        <div className="relative h-[280px] w-full overflow-hidden sm:h-[350px] md:h-[450px] lg:h-[550px]">
           <Image
             src={images.section}
             alt="Section Banner"
@@ -294,10 +291,32 @@ export default async function ServiceDetails({ params }) {
             className="object-cover"
           />
 
-          {/* Optional Dark Overlay */}
-          <div className="absolute inset-0 bg-black/20" />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/40" />
 
-          {/* Button */}
+          {/* Content */}
+          <div className="absolute inset-0 flex items-center justify-center px-5 text-center pt-5 pb-20">
+            <div className="max-w-3xl">
+              <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+                Build Your Next Digital Product With Us
+              </h2>
+
+              <p className="mt-4 text-sm leading-7 text-white/80 sm:text-base md:text-lg">
+                We help startups and businesses create scalable web and mobile
+                solutions with modern technologies.
+              </p>
+
+              <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <button className="btn btn-primary w-full sm:w-auto">
+                  Start Your Project
+                </button>
+
+                <button className="btn btn-secondary w-full bg-white sm:w-auto">
+                  View Services
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

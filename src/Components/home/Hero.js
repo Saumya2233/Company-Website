@@ -4,12 +4,12 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-white pt-8">
-      <div className="absolute left-[-120px] top-20 h-72 w-72 rounded-full bg-[var(--primary)]/20 blur-3xl" />
-      <div className="absolute right-[-120px] top-32 h-72 w-72 rounded-full bg-[var(--secondary)]/20 blur-3xl" />
+      <div className="glow-primary left-[-120px] top-20 bg-[var(--primary)]/20" />
+      <div className="glow-secondary right-[-120px] top-32 bg-[var(--secondary)]/20" />
 
       <div className="mx-auto grid min-h-[calc(100vh-78px)] max-w-7xl items-center gap-12 px-6 pb-20 lg:grid-cols-2 lg:px-10">
         <div>
-          <span className="mb-5 inline-flex rounded-full bg-[var(--primary)]/10 px-5 py-2 text-sm font-semibold text-[var(--primary)]">
+          <span className="badge-primary mb-5 font-semibold">
             Software Development & Tech Hiring Company
           </span>
 
@@ -18,7 +18,7 @@ export default function Hero() {
             <span className="gradient-text">software teams.</span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg leading-8 text-[var(--text-secondary)]">
+          <p className="body-copy-lg mt-6 max-w-xl">
             We help businesses create modern websites, web apps, mobile apps, AI
             solutions, and also connect companies with skilled interns and tech
             professionals.
@@ -26,7 +26,7 @@ export default function Hero() {
 
         
 
-          <div className="mt-8 grid gap-3 text-sm text-[var(--text-secondary)] sm:grid-cols-3">
+          <div className="mt-8 grid gap-3 text-sm text-secondary sm:grid-cols-3">
             <div className="flex items-center gap-2">
               <CheckCircle size={18} className="text-[var(--primary)]" />
               Web Apps
@@ -48,7 +48,7 @@ export default function Hero() {
               <div className="rounded-3xl bg-white p-6 shadow-lg">
                 <div className="mb-6 flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-[var(--text-muted)]">
+                    <p className="text-sm text-muted">
                       Project Dashboard
                     </p>
                     <h3 className="text-2xl font-bold text-black">

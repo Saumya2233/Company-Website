@@ -53,7 +53,7 @@ export default function HireDevelopersBanner() {
                   key={index}
                   className="flex items-center gap-4 rounded-3xl bg-white px-6 py-5 text-left shadow-2xl"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--primary)]/15 text-[var(--primary)]">
+                  <div className="flex-center h-14 w-14 rounded-full bg-[var(--primary)]/15 text-[var(--primary)]">
                     <Icon size={24} />
                   </div>
 
@@ -76,7 +76,7 @@ export default function HireDevelopersBanner() {
             and direct developer access.
           </p>
 
-          <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-8 py-4 text-sm font-bold text-white transition hover:bg-[var(--primary-dark)]">
+          <button className="btn btn-primary btn-lg mt-8 font-bold">
             Hire Now
             <ArrowRight size={18} />
           </button>
