@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaBriefcase, FaLocationDot, FaClock, FaFilter } from "react-icons/fa6";
+import { FaBriefcase, FaLocationDot, FaClock } from "react-icons/fa6";
 import { Search, MapPin } from "lucide-react";
+import JobModal from "@/modals/JobDescriptionsModal";
+import ApplyModal from "@/modals/ApplyModal";
 
 const jobs = [
   {
@@ -40,253 +42,244 @@ const filters = ["All", "Full Time", "Internship", "Contract", "Remote"];
 
 export default function CareersPage() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
+  const [applyModal, setApplyModal] = useState(false);
 
-  const filteredJobs =
-    activeFilter === "All"
-      ? jobs
-      : activeFilter === "Remote"
-        ? jobs.filter((job) => job.location === "Remote")
-        : jobs.filter((job) => job.type === activeFilter);
+  const filteredJobs = jobs.filter((job) => {
+    const matchesFilter =
+      activeFilter === "All"
+        ? true
+        : activeFilter === "Remote"
+          ? job.location === "Remote"
+          : job.type === activeFilter;
+
+    const search = searchTerm.trim().toLowerCase();
+    const matchesSearch =
+      search.length === 0 ||
+      job.title.toLowerCase().includes(search) ||
+      job.location.toLowerCase().includes(search) ||
+      job.type.toLowerCase().includes(search) ||
+      job.level.toLowerCase().includes(search);
+
+    return matchesFilter && matchesSearch;
+  });
+
+  const openJobDetails = (job) => {
+    setSelectedJob(job);
+    setOpenModal(true);
+  };
 
   return (
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-[#faf7ff] to-[#fff7f5] pb-24 pt-32">
-        {/* Background Blur */}
         <div className="absolute left-[-120px] top-[-120px] h-72 w-72 rounded-full bg-[#A572CF]/20 blur-3xl" />
         <div className="absolute bottom-[-120px] right-[-120px] h-72 w-72 rounded-full bg-[#E87779]/20 blur-3xl" />
 
         <div className="container-custom grid items-center gap-16 lg:grid-cols-2">
-          {/* Left Content */}
           <div>
-            <span className="rounded-full bg-[#A572CF]/10 px-5 py-2 text-xs font-semibold uppercase tracking-[3px] text-[#A572CF]">
-              Careers at Mxpertz
-            </span>
+            <span className="section-tag">Careers at Mxpertz</span>
 
-            <h1 className="mt-7 text-5xl font-bold leading-tight text-[var(--text-primary)]">
+            <h1 className="heading-xl mt-7 max-w-3xl">
               Build your future with a team that creates meaningful digital
               products.
             </h1>
 
-            <p className="mt-6 max-w-xl text-[17px] leading-8 text-[var(--text-secondary)]">
+            <p className="description-lg mt-6 max-w-xl">
               We are building modern web platforms, SaaS applications, AI
               workflows, dashboards and scalable digital experiences for
               startups and businesses worldwide.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <button className="btn btn-outline-primary btn-lg">
-                <a href="#jobs" >
-                  Open Positions
-                </a>
-              </button>
+              <a href="#jobs" className="btn btn-outline-primary btn-lg">
+                Open Positions
+              </a>
 
               <button className="btn btn-outline-primary btn-lg">
                 Learn More
               </button>
             </div>
 
-            {/* Stats */}
             <div className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4">
-              <div>
-                <h3 className="text-3xl font-bold text-[#A572CF]">25+</h3>
-                <p className="mt-2 text-sm text-secondary">
-                  Team Members
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-3xl font-bold text-[#E87779]">120+</h3>
-                <p className="mt-2 text-sm text-secondary">
-                  Projects Delivered
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-3xl font-bold text-[#A572CF]">10+</h3>
-                <p className="mt-2 text-sm text-secondary">
-                  Countries Served
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-3xl font-bold text-[#E87779]">100%</h3>
-                <p className="mt-2 text-sm text-secondary">
-                  Remote Friendly
-                </p>
-              </div>
+              {[
+                ["25+", "Team Members", "#A572CF"],
+                ["120+", "Projects Delivered", "#E87779"],
+                ["10+", "Countries Served", "#A572CF"],
+                ["100%", "Remote Friendly", "#E87779"],
+              ].map(([value, label, color]) => (
+                <div key={label}>
+                  <h3
+                    className="text-3xl font-medium leading-none"
+                    style={{ color }}
+                  >
+                    {value}
+                  </h3>
+                  <p className="mt-2 text-sm text-secondary">{label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right Image Section */}
           <div className="relative">
-            {/* Half Cut Shape */}
             <div className="absolute bottom-[-40px] left-[-40px] h-72 w-72 rounded-full bg-gradient-to-br from-[#A572CF] to-[#E87779] opacity-30 blur-3xl" />
 
-            <div className="relative overflow-hidden rounded-tl-[220px] rounded-bl-[220px] border border-white/40 bg-white shadow-2xl">
+            <div className="relative overflow-hidden rounded-bl-[160px] rounded-tl-[160px] border border-white/40 bg-white shadow-2xl md:rounded-bl-[220px] md:rounded-tl-[220px]">
               <div className="grid grid-cols-3 gap-0">
-                <img
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
-                  alt=""
-                  className="h-56 w-full object-cover"
-                />
-
-                <img
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
-                  alt=""
-                  className="h-56 w-full object-cover"
-                />
-
-                <img
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80"
-                  alt=""
-                  className="h-56 w-full object-cover"
-                />
-
-                <img
-                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d"
-                  alt=""
-                  className="h-56 w-full object-cover"
-                />
-
-                <img
-                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7"
-                  alt=""
-                  className="h-56 w-full object-cover"
-                />
-
-                <img
-                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2"
-                  alt=""
-                  className="h-56 w-full object-cover"
-                />
+                {[
+                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+                  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+                  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
+                  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7",
+                  "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
+                ].map((src) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt=""
+                    className="h-40 w-full object-cover md:h-56"
+                  />
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Open Positions */}
-      <section  id="jobs" className="bg-white py-12">
+      <section id="jobs" className="relative bg-white py-16 md:py-20">
         <div className="container-custom">
-          <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <div>
-              <span className="text-sm font-semibold uppercase  text-[#A572CF]">
-                Open Positions
-              </span>
+          <div className="-mt-28 rounded-[28px] border border-white/70 bg-white/95 p-5 shadow-2xl backdrop-blur-xl md:p-7">
+            <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-primary">
+                  Search jobs
+                </label>
+                <div className="flex h-14 items-center gap-3 rounded-2xl border border-gray-200 bg-white px-4 transition focus-within:border-[var(--primary)] focus-within:ring-4 focus-within:ring-[var(--primary)]/10">
+                  <Search size={18} className="shrink-0 text-[var(--primary)]" />
+                  <input
+                    type="text"
+                    placeholder="Search by title, location, type, or level"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="h-full w-full bg-transparent text-sm text-primary outline-none placeholder:text-gray-400"
+                  />
+                </div>
+              </div>
 
-              <h2 className="mt-4 text-4xl font-bold text-[var(--text-primary)]">
-                Explore career opportunities
-              </h2>
+              <div className="flex flex-wrap gap-2">
+                {filters.map((filter) => (
+                  <button
+                    key={filter}
+                    onClick={() => setActiveFilter(filter)}
+                    className={`h-11 rounded-full px-4 text-sm font-medium transition ${
+                      activeFilter === filter
+                        ? "bg-[var(--primary)] text-white shadow-[var(--shadow-primary)]"
+                        : "border border-gray-200 bg-white text-secondary hover:border-[var(--primary)] hover:text-[var(--primary)]"
+                    }`}
+                  >
+                    {filter}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <span className="eyebrow">Open Positions</span>
+              <h2 className="heading-lg mt-3">Explore career opportunities</h2>
             </div>
 
-            <p className="body-copy-sm max-w-lg text-[16px]">
-              Join our growing team and work on modern technologies, scalable
-              products and innovative digital experiences.
+            <p className="description-md max-w-xl">
+              Find roles designed for people who like clean products, practical
+              engineering, and thoughtful collaboration.
             </p>
           </div>
 
-          <div className="space-y-6">
-            {/* Job Card */}
-            <div className="card-job">
-              <div className="flex items-start gap-5">
-                <div className="flex-center h-16 w-16 rounded-2xl bg-[#A572CF]/10 text-2xl">
-                  💼
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-semibold text-[var(--text-primary)]">
-                    Sales Executive
-                  </h3>
-
-                  <div className="mt-3 flex flex-wrap gap-3">
-                    <span className="tag-primary">
-                      Full Time
-                    </span>
-
-                    <span className="tag-secondary">
-                      Remote
-                    </span>
-
-                    <span className="tag-muted">
-                      1-3 Years
-                    </span>
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {filteredJobs.map((job, index) => (
+              <motion.article
+                key={`${job.title}-${index}`}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: index * 0.04 }}
+                className="group flex h-full min-h-[330px] flex-col rounded-[28px] border border-gray-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[var(--primary)]/30 hover:shadow-xl"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#A572CF]/15 to-[#E87779]/15 text-xl text-[var(--primary)]">
+                    <FaBriefcase />
                   </div>
-                </div>
-              </div>
 
-              <button className="btn btn-gradient btn-md">
-                Apply Now
-              </button>
-            </div>
-
-            {/* Job Card */}
-            <div className="card-job">
-              <div className="flex items-start gap-5">
-                <div className="flex-center h-16 w-16 rounded-2xl bg-[#E87779]/10 text-2xl">
-                  📦
+                  <span className="rounded-full bg-[#A572CF]/10 px-3 py-1.5 text-xs font-medium text-[#A572CF]">
+                    {job.level}
+                  </span>
                 </div>
 
-                <div>
-                  <h3 className="text-2xl font-semibold text-[var(--text-primary)]">
-                    Product Manager
-                  </h3>
-
-                  <div className="mt-3 flex flex-wrap gap-3">
-                    <span className="tag-primary">
-                      Full Time
-                    </span>
-
-                    <span className="tag-secondary">
-                      Hybrid
-                    </span>
-
-                    <span className="tag-muted">
-                      2-5 Years
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <button className="btn btn-gradient btn-md">
-                Apply Now
-              </button>
-            </div>
-
-            {/* Job Card */}
-            <div className="card-job">
-              <div className="flex items-start gap-5">
-                <div className="flex-center h-16 w-16 rounded-2xl bg-[#A572CF]/10 text-2xl">
-                  💻
+                <div className="mt-6">
+                  <h3 className="card-title-lg">{job.title}</h3>
+                  <p className="mt-2 text-sm font-medium text-[var(--primary)]">
+                    Mxpertz Infolabs · {job.type}
+                  </p>
                 </div>
 
-                <div>
-                  <h3 className="text-2xl font-semibold text-[var(--text-primary)]">
-                    MERN Stack Developer
-                  </h3>
+                <p className="description-sm mt-4 line-clamp-3">{job.desc}</p>
 
-                  <div className="mt-3 flex flex-wrap gap-3">
-                    <span className="tag-primary">
-                      Full Time
-                    </span>
-
-                    <span className="tag-secondary">
-                      On Site
-                    </span>
-
-                    <span className="tag-muted">
-                      1-4 Years
-                    </span>
-                  </div>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-[#E87779]/10 px-3 py-2 text-xs font-medium text-[#E87779]">
+                    <FaLocationDot />
+                    {job.location}
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-2 text-xs font-medium text-gray-600">
+                    <FaClock />
+                    {job.type}
+                  </span>
                 </div>
-              </div>
 
-              <button className="btn btn-gradient btn-md">
-                Apply Now
-              </button>
-            </div>
+                <div className="mt-auto pt-7">
+                  <button
+                    onClick={() => openJobDetails(job)}
+                    className="btn btn-outline-primary btn-md w-full"
+                  >
+                    View More
+                  </button>
+                </div>
+              </motion.article>
+            ))}
           </div>
+
+          {filteredJobs.length === 0 && (
+            <div className="mt-10 rounded-[24px] border border-dashed border-gray-200 bg-gray-50 p-10 text-center">
+              <MapPin className="mx-auto text-[var(--primary)]" size={28} />
+              <h3 className="mt-4 text-xl font-medium text-primary">
+                No roles found
+              </h3>
+              <p className="description-sm mx-auto mt-2 max-w-md">
+                Try a different search term or switch the filter to see more
+                available positions.
+              </p>
+            </div>
+          )}
         </div>
       </section>
+
+      <JobModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+        job={selectedJob}
+        onApply={() => {
+          setOpenModal(false);
+          setApplyModal(true);
+        }}
+      />
+
+      <ApplyModal
+        isOpen={applyModal}
+        onClose={() => setApplyModal(false)}
+        job={selectedJob}
+      />
     </>
   );
 }

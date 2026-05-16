@@ -59,6 +59,15 @@ body {
     );
   }
 
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      var(--primary),
+      var(--secondary)
+    );
+  }
+
   .badge-primary {
     @apply inline-flex rounded-full bg-[var(--primary)]/10 px-5 py-2 text-sm font-medium text-[var(--primary)];
   }
@@ -71,8 +80,24 @@ body {
     @apply text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)];
   }
 
+  .section-tag {
+    @apply inline-flex rounded-full bg-[var(--primary)]/10 px-5 py-2 text-xs font-medium uppercase tracking-[0.18em] text-[var(--primary)];
+  }
+
   .heading-hero {
     @apply text-4xl font-semibold leading-tight text-[var(--text-primary)] md:text-6xl;
+  }
+
+  .heading-xl {
+    @apply text-4xl font-medium leading-[1.12] text-[var(--text-primary)] md:text-6xl;
+  }
+
+  .heading-lg {
+    @apply text-3xl font-medium leading-[1.16] text-[var(--text-primary)] md:text-5xl;
+  }
+
+  .heading-md {
+    @apply text-xl font-medium leading-snug text-[var(--text-primary)] md:text-2xl;
   }
 
   .heading-section {
@@ -93,6 +118,26 @@ body {
 
   .body-copy-sm {
     @apply text-sm leading-7 text-[var(--text-secondary)];
+  }
+
+  .description-lg {
+    @apply text-base font-normal leading-8 text-[var(--text-secondary)] md:text-lg;
+  }
+
+  .description-md {
+    @apply text-[15px] font-normal leading-7 text-[var(--text-secondary)];
+  }
+
+  .description-sm {
+    @apply text-sm font-normal leading-7 text-[var(--text-secondary)];
+  }
+
+  .card-title {
+    @apply text-lg font-medium leading-snug text-[var(--text-primary)] md:text-xl;
+  }
+
+  .card-title-lg {
+    @apply text-2xl font-medium leading-snug text-[var(--text-primary)];
   }
 
   /* =========================
@@ -343,3 +388,7 @@ body {
 
 
 
+
+.input {
+  @apply h-[56px] w-full rounded-2xl border border-gray-200 bg-white px-5 text-sm outline-none transition-all duration-300 focus:border-[#A572CF] focus:ring-4 focus:ring-[#A572CF]/10;
+}
