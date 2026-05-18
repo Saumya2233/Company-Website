@@ -1,50 +1,4 @@
-import {
-  Globe,
-  Smartphone,
-  Brain,
-  Users,
-  LayoutDashboard,
-  ShieldCheck,
-} from "lucide-react";
-
-const services = [
-  {
-    title: "Web Development",
-    description:
-      "Modern responsive websites and scalable web applications for businesses.",
-    icon: Globe,
-  },
-  {
-    title: "Mobile Apps",
-    description:
-      "Cross-platform mobile applications with clean UI and smooth performance.",
-    icon: Smartphone,
-  },
-  {
-    title: "AI Solutions",
-    description:
-      "AI-powered tools, automation systems, and smart business integrations.",
-    icon: Brain,
-  },
-  {
-    title: "Tech Hiring",
-    description:
-      "Hire skilled developers, interns, and dedicated tech teams easily.",
-    icon: Users,
-  },
-  {
-    title: "Dashboard Systems",
-    description:
-      "Admin panels, CRM dashboards, analytics, and business management systems.",
-    icon: LayoutDashboard,
-  },
-  {
-    title: "QA & Testing",
-    description:
-      "Manual and automated testing solutions for reliable software delivery.",
-    icon: ShieldCheck,
-  },
-];
+import { homeServices } from "@/data/home";
 
 export default function Services() {
   return (
@@ -71,7 +25,7 @@ export default function Services() {
 
         {/* Cards */}
         <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service, index) => {
+          {homeServices.map((service, index) => {
             const Icon = service.icon;
 
             return (

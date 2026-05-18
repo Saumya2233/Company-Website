@@ -6,39 +6,7 @@ import { FaBriefcase, FaLocationDot, FaClock } from "react-icons/fa6";
 import { Search, MapPin } from "lucide-react";
 import JobModal from "@/modals/JobDescriptionsModal";
 import ApplyModal from "@/modals/ApplyModal";
-
-const jobs = [
-  {
-    title: "Frontend Developer",
-    type: "Full Time",
-    location: "Indore",
-    level: "Junior",
-    desc: "Build responsive websites and SaaS interfaces using React, Next.js and Tailwind CSS.",
-  },
-  {
-    title: "Backend Developer",
-    type: "Full Time",
-    location: "Remote",
-    level: "Mid Level",
-    desc: "Create APIs, authentication systems, dashboards and scalable backend services.",
-  },
-  {
-    title: "UI/UX Designer",
-    type: "Internship",
-    location: "Indore",
-    level: "Fresher",
-    desc: "Design clean landing pages, SaaS dashboards, mobile screens and user-friendly interfaces.",
-  },
-  {
-    title: "AI Automation Engineer",
-    type: "Contract",
-    location: "Remote",
-    level: "Mid Level",
-    desc: "Build AI workflows, automation tools, chatbots and smart business systems.",
-  },
-];
-
-const filters = ["All", "Full Time", "Internship", "Contract", "Remote"];
+import { careerFilters, careerStats, careerTeamImages, jobs } from "@/data/careers";
 
 export default function CareersPage() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -103,12 +71,7 @@ export default function CareersPage() {
             </div>
 
             <div className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4">
-              {[
-                ["25+", "Team Members", "#A572CF"],
-                ["120+", "Projects Delivered", "#E87779"],
-                ["10+", "Countries Served", "#A572CF"],
-                ["100%", "Remote Friendly", "#E87779"],
-              ].map(([value, label, color]) => (
+              {careerStats.map(({ value, label, color }) => (
                 <div key={label}>
                   <h3
                     className="text-3xl font-medium leading-none"
@@ -127,14 +90,7 @@ export default function CareersPage() {
 
             <div className="relative overflow-hidden rounded-bl-[160px] rounded-tl-[160px] border border-white/40 bg-white shadow-2xl md:rounded-bl-[220px] md:rounded-tl-[220px]">
               <div className="grid grid-cols-3 gap-0">
-                {[
-                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
-                  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
-                  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
-                  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7",
-                  "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
-                ].map((src) => (
+                {careerTeamImages.map((src) => (
                   <img
                     key={src}
                     src={src}
@@ -169,7 +125,7 @@ export default function CareersPage() {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {filters.map((filter) => (
+                {careerFilters.map((filter) => (
                   <button
                     key={filter}
                     onClick={() => setActiveFilter(filter)}

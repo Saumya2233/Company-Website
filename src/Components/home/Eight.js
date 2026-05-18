@@ -2,34 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-
-const faqs = [
-  {
-    question: "How quickly can we start?",
-    answer:
-      "We can start with a quick discovery call, understand your requirements and define the roadmap before development begins.",
-  },
-  {
-    question: "Do you work with startups?",
-    answer:
-      "Yes, we work with startups, businesses and enterprises to build scalable digital products.",
-  },
-  {
-    question: "Can you build AI automation systems?",
-    answer:
-      "Yes, we build AI-powered tools, automation workflows and smart integrations.",
-  },
-  {
-    question: "Do you provide dedicated developers?",
-    answer:
-      "Yes, you can hire developers on full-time, part-time or hourly basis.",
-  },
-  {
-    question: "What technologies do you use?",
-    answer:
-      "We use React, Next.js, Node.js, Firebase, PostgreSQL and modern cloud technologies.",
-  },
-];
+import { faqs } from "@/data/home";
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(0);

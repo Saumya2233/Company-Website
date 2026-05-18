@@ -6,31 +6,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { images } from "@/constant/image";
-
-const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    {
-        name: "Services",
-        href: "/services",
-        dropdown: [
-            { name: "UI/UX Design", href: "/services/ui-ux-design" },
-            { name: "Frontend Development", href: "/services/frontend-development" },
-            { name: "Backend Development", href: "/services/backend-development" },
-            { name: "MERN Stack Development", href: "/services/mern-stack" },
-            { name: "Cloud Solutions", href: "/services/cloud-solutions" },
-            { name: "PHP Development", href: "/services/php-development" },
-            { name: "Laravel Development", href: "/services/laravel-development" },
-            { name: "WordPress Development", href: "/services/wordpress-development" },
-            { name: "Data Engineering", href: "/services/data-engineering" },
-            { name: "Software Testing", href: "/services/software-testing" },
-        ],
-    },
-    { name: "Case Study", href: "/caseStudy" },
-    { name: "Blogs", href: "/blogs" },
-    { name: "Career", href: "/carrer" },
-   
-];
+import { navLinks } from "@/data/navigation";
 
 export default function Header() {
     const [mobileMenu, setMobileMenu] = useState(false);
@@ -68,7 +44,9 @@ export default function Header() {
                                         className="transition group-hover:rotate-180"
                                     />
                                 )}
+                                
                             </Link>
+                         
 
                             {item.dropdown && (
                                 <div className="invisible absolute left-0 top-12 grid w-[520px] grid-cols-2 gap-2 rounded-2xl border border-gray-100 bg-white p-4 opacity-0 shadow-xl transition-all duration-300 group-hover:visible group-hover:top-11 group-hover:opacity-100">

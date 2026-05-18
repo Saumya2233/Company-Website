@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Briefcase, MapPin, Clock } from "lucide-react";
+import { jobResponsibilities } from "@/data/jobDetails";
 
 export default function JobModal({ isOpen, onClose, job, onApply }) {
   if (!job) return null;
@@ -83,12 +84,7 @@ export default function JobModal({ isOpen, onClose, job, onApply }) {
               </h3>
 
               <ul className="mt-5 space-y-4">
-                {[
-                  "Develop scalable and modern applications",
-                  "Collaborate with design and development teams",
-                  "Write clean and maintainable code",
-                  "Participate in product discussions and planning",
-                ].map((item, index) => (
+                {jobResponsibilities.map((item, index) => (
                   <li
                     key={index}
                     className="flex items-start gap-3 text-[var(--text-secondary)]"

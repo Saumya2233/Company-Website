@@ -1,4 +1,11 @@
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { contactFormFields, contactInfoItems } from "@/data/home";
+
+const contactIcons = {
+  email: Mail,
+  phone: Phone,
+  location: MapPin,
+};
 
 export default function ContactSection() {
   return (
@@ -36,81 +43,44 @@ export default function ContactSection() {
             </p>
 
             <div className="mt-8 space-y-4 md:mt-10 md:space-y-5">
-              {/* Email */}
-              <div className="contact-info-item">
-                <div className="flex-center h-11 w-11 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] md:h-12 md:w-12">
-                  <Mail size={20} />
-                </div>
+              {contactInfoItems.map((item) => {
+                const Icon = contactIcons[item.type];
 
-                <div>
-                  <p className="text-sm text-secondary">Email</p>
+                return (
+                  <div key={item.label} className="contact-info-item">
+                    <div className="flex-center h-11 w-11 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] md:h-12 md:w-12">
+                      <Icon size={20} />
+                    </div>
 
-                  <h4 className="mt-1 text-sm font-medium text-[var(--text-primary)] md:text-base">
-                    hello@mxpertz.com
-                  </h4>
-                </div>
-              </div>
+                    <div>
+                      <p className="text-sm text-secondary">{item.label}</p>
 
-              {/* Phone */}
-              <div className="contact-info-item">
-                <div className="flex-center h-11 w-11 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] md:h-12 md:w-12">
-                  <Phone size={20} />
-                </div>
-
-                <div>
-                  <p className="text-sm text-secondary">Phone</p>
-
-                  <h4 className="mt-1 text-sm font-medium text-[var(--text-primary)] md:text-base">
-                    +91 98765 43210
-                  </h4>
-                </div>
-              </div>
-
-              {/* Location */}
-              <div className="contact-info-item">
-                <div className="flex-center h-11 w-11 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] md:h-12 md:w-12">
-                  <MapPin size={20} />
-                </div>
-
-                <div>
-                  <p className="text-sm text-secondary">
-                    Location
-                  </p>
-
-                  <h4 className="mt-1 text-sm font-medium text-[var(--text-primary)] md:text-base">
-                    Indore, Madhya Pradesh
-                  </h4>
-                </div>
-              </div>
+                      <h4 className="mt-1 text-sm font-medium text-[var(--text-primary)] md:text-base">
+                        {item.value}
+                      </h4>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           {/* Right Form */}
           <div className="form-card">
             <div className="grid gap-5 md:grid-cols-2">
-              <div>
+              {contactFormFields.map((field) => (
+              <div key={field.label}>
                 <label className="form-label">
-                  Full Name
+                  {field.label}
                 </label>
 
                 <input
-                  type="text"
-                  placeholder="Enter your name"
+                  type={field.type}
+                  placeholder={field.placeholder}
                   className="form-input"
                 />
               </div>
-
-              <div>
-                <label className="form-label">
-                  Email Address
-                </label>
-
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="form-input"
-                />
-              </div>
+              ))}
             </div>
 
             <div className="mt-5">

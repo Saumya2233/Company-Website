@@ -2,13 +2,7 @@ import { images } from "@/constant/image";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-
-const points = [
-  "Pre-vetted skilled developers",
-  "Flexible hiring models",
-  "Fast onboarding process",
-  "Dedicated project support",
-];
+import { hireTalentPoints, hireTalentStat } from "@/data/home";
 
 export default function HireTalent() {
     const router = useRouter();
@@ -36,7 +30,7 @@ export default function HireTalent() {
 
             {/* Points */}
             <div className="mt-8 space-y-5">
-              {points.map((item, index) => (
+              {hireTalentPoints.map((item, index) => (
                 <div key={index} className="flex items-center gap-4">
                   <div className="flex-center h-10 w-10 rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
                     <CheckCircle2 size={20} />
@@ -78,11 +72,11 @@ export default function HireTalent() {
             {/* Floating Card */}
             <div className="absolute -bottom-8 -left-6 rounded-3xl bg-white p-6 shadow-2xl mb-4">
               <h3 className="text-4xl font-extrabold text-[var(--primary)]">
-                100+
+                {hireTalentStat.value}
               </h3>
 
               <p className="mt-2 text-sm font-medium text-[var(--text-secondary)]">
-                Skilled Developers
+                {hireTalentStat.label}
               </p>
             </div>
           </div>

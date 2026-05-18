@@ -1,49 +1,5 @@
-import {
-  BriefcaseBusiness,
-  ShoppingBag,
-  Building2,
-  Coffee,
-  HeartPulse,
-  WalletCards,
-  GraduationCap,
-  Truck,
-  ArrowRight,
-} from "lucide-react";
-
-const industries = [
-  {
-    title: "Services",
-    icon: BriefcaseBusiness,
-  },
-  {
-    title: "Retail",
-    icon: ShoppingBag,
-  },
-  {
-    title: "Real Estate",
-    icon: Building2,
-  },
-  {
-    title: "Lifestyle",
-    icon: Coffee,
-  },
-  {
-    title: "Healthcare",
-    icon: HeartPulse,
-  },
-  {
-    title: "Finance",
-    icon: WalletCards,
-  },
-  {
-    title: "Education",
-    icon: GraduationCap,
-  },
-  {
-    title: "Logistics",
-    icon: Truck,
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { industryItems } from "@/data/home";
 
 export default function IndustriesSection() {
   return (
@@ -70,7 +26,7 @@ export default function IndustriesSection() {
 
           {/* Right Grid */}
           <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
-            {industries.map((item, index) => {
+            {industryItems.map((item, index) => {
               const Icon = item.icon;
 
               return (

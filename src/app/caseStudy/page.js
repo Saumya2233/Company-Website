@@ -1,70 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  TrendingUp,
-  Users,
-  Clock,
-  CheckCircle,
-} from "lucide-react";
-
-const caseStudies = [
-  {
-    title: "SaaS Admin Dashboard",
-    category: "Web Application",
-    desc: "A scalable dashboard built for managing users, analytics, subscriptions and business operations.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
-    results: [
-      "45% faster workflow",
-      "Real-time analytics",
-      "Role based access",
-    ],
-  },
-  {
-    title: "AI Hiring Platform",
-    category: "AI Automation",
-    desc: "A smart hiring system that helps companies shortlist candidates and manage recruitment faster.",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop",
-    results: [
-      "60% time saved",
-      "Automated screening",
-      "Better candidate tracking",
-    ],
-  },
-  {
-    title: "E-commerce Website",
-    category: "Online Store",
-    desc: "A modern e-commerce website with product listing, cart, checkout and admin management.",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
-    results: ["Responsive UI", "Fast checkout", "SEO optimized"],
-  },
-];
-
-const stats = [
-  {
-    title: "Projects Delivered",
-    value: "50+",
-    icon: CheckCircle,
-  },
-  {
-    title: "Client Growth",
-    value: "3x",
-    icon: TrendingUp,
-  },
-  {
-    title: "Happy Clients",
-    value: "30+",
-    icon: Users,
-  },
-  {
-    title: "Faster Delivery",
-    value: "40%",
-    icon: Clock,
-  },
-];
+import { ArrowRight, CheckCircle } from "lucide-react";
+import { caseStudies, caseStudyStats } from "@/data/caseStudies";
 
 export default function CaseStudyPage() {
   return (
@@ -94,7 +31,7 @@ export default function CaseStudyPage() {
       <section className="-mt-12 relative z-10">
         <div className="container-custom">
           <div className="grid gap-5 rounded-[30px] bg-white p-6 shadow-[0_25px_80px_rgba(15,23,42,0.12)] sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((item, index) => {
+            {caseStudyStats.map((item, index) => {
               const Icon = item.icon;
 
               return (

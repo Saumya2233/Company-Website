@@ -1,21 +1,16 @@
-import { Mail, Phone, MapPin } from "lucide-react";
-
+import { Mail, MapPin, Phone } from "lucide-react";
 import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTwitter,
-} from "react-icons/fa";
+  footerCompany,
+  footerContactItems,
+  footerLegalLinks,
+  footerLinkGroups,
+  footerSocialLinks,
+} from "@/data/footer";
 
-const links = {
-  Company: ["About Us", "Services", "Case Study", "Portfolio", "Career"],
-  Services: [
-    "Web Development",
-    "Mobile Apps",
-    "AI Solutions",
-    "SaaS Products",
-    "QA Testing",
-  ],
+const footerContactIcons = {
+  email: Mail,
+  phone: Phone,
+  location: MapPin,
 };
 
 export default function Footer() {
@@ -25,29 +20,26 @@ export default function Footer() {
         <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <h2 className="text-2xl font-semibold">MXPERTZ</h2>
+            <h2 className="text-2xl font-semibold">{footerCompany.name}</h2>
 
             <p className="mt-4 text-sm leading-7 text-white/60">
-              We build modern websites, mobile apps, SaaS products and
-              AI-powered solutions for growing businesses.
+              {footerCompany.description}
             </p>
 
             <div className="mt-6 flex gap-3">
-              {[FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter].map(
-                (Icon, index) => (
-                  <div
-                    key={index}
-                    className="flex-center h-10 w-10 rounded-full bg-white/10 text-white transition hover:bg-[var(--primary)]"
-                  >
-                    <Icon size={16} />
-                  </div>
-                ),
-              )}
+              {footerSocialLinks.map(({ label, icon: Icon }) => (
+                <div
+                  key={label}
+                  className="flex-center h-10 w-10 rounded-full bg-white/10 text-white transition hover:bg-[var(--primary)]"
+                >
+                  <Icon size={16} />
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Links */}
-          {Object.entries(links).map(([title, items]) => (
+          {Object.entries(footerLinkGroups).map(([title, items]) => (
             <div key={title}>
               <h3 className="text-lg font-semibold">{title}</h3>
 
@@ -69,35 +61,30 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Contact</h3>
 
             <div className="mt-5 space-y-4 text-sm text-white/60">
-              <p className="flex gap-3">
-                <Mail size={18} className="text-[var(--primary)]" />
-                hello@mxpertz.com
-              </p>
+              {footerContactItems.map((item) => {
+                const Icon = footerContactIcons[item.type];
 
-              <p className="flex gap-3">
-                <Phone size={18} className="text-[var(--primary)]" />
-                +91 98765 43210
-              </p>
-
-              <p className="flex gap-3">
-                <MapPin size={18} className="text-[var(--primary)]" />
-                Indore, Madhya Pradesh
-              </p>
+                return (
+                  <p key={item.label} className="flex gap-3">
+                    <Icon size={18} className="text-[var(--primary)]" />
+                    {item.value}
+                  </p>
+                );
+              })}
             </div>
           </div>
         </div>
 
         {/* Bottom */}
         <div className="flex flex-col items-center justify-between gap-4 py-6 text-sm text-white/50 md:flex-row">
-          <p>© 2026 Mxpertz. All rights reserved.</p>
+          <p>{footerCompany.copyright}</p>
 
           <div className="flex gap-6">
-            <span className="cursor-pointer hover:text-white">
-              Privacy Policy
-            </span>
-            <span className="cursor-pointer hover:text-white">
-              Terms & Conditions
-            </span>
+            {footerLegalLinks.map((item) => (
+              <span key={item} className="cursor-pointer hover:text-white">
+                {item}
+              </span>
+            ))}
           </div>
         </div>
       </div>

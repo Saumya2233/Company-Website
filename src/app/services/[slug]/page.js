@@ -2,8 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/data/service"
 import { notFound } from "next/navigation";
-import { CheckCircle, Code2, Users, Clock, ShieldCheck } from "lucide-react";
+import { CheckCircle, Code2 } from "lucide-react";
 import { images } from "@/constant/image";
+import {
+  defaultServiceFeatures,
+  fallbackServiceImage,
+  serviceFeatureStats,
+  serviceWhyChooseCards,
+  serviceWhyChooseStats,
+} from "@/data/serviceDetails";
 
 export default async function ServiceDetails({ params }) {
   const { slug } = await params;
@@ -53,8 +60,7 @@ export default async function ServiceDetails({ params }) {
           <div className="relative">
             <Image
               src={
-                service.image ||
-                "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop"
+                service.image || fallbackServiceImage
               }
               alt={service.title}
               width={700}
@@ -110,49 +116,24 @@ export default async function ServiceDetails({ params }) {
 
               {/* Stats */}
               <div className="mt-5 grid grid-cols-2 gap-6 md:grid-cols-3">
-                <div className="card-stat">
-                  <h3 className="text-3xl font-bold text-[var(--primary)]">
-                    99%
-                  </h3>
+                {serviceFeatureStats.map((stat) => (
+                  <div key={stat.label} className="card-stat">
+                    <h3 className="text-3xl font-bold text-[var(--primary)]">
+                      {stat.value}
+                    </h3>
 
-                  <p className="mt-2 text-sm text-secondary">
-                    Client Satisfaction
-                  </p>
-                </div>
-
-                <div className="card-stat">
-                  <h3 className="text-3xl font-bold text-[var(--primary)]">
-                    24/7
-                  </h3>
-
-                  <p className="mt-2 text-sm text-secondary">
-                    Technical Support
-                  </p>
-                </div>
-
-                <div className="card-stat">
-                  <h3 className="text-3xl font-bold text-[var(--primary)]">
-                    100+
-                  </h3>
-
-                  <p className="mt-2 text-sm text-secondary">
-                    Successful Projects
-                  </p>
-                </div>
+                    <p className="mt-2 text-sm text-secondary">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Right Features */}
             <div className="grid gap-5 sm:grid-cols-2">
               {(
-                service.features || [
-                  "Responsive Design",
-                  "Clean Code Structure",
-                  "Performance Optimization",
-                  "API Integration",
-                  "Testing & QA",
-                  "Long-Term Support",
-                ]
+                service.features || defaultServiceFeatures
               ).map((feature, index) => (
                 <div
                   key={index}
@@ -187,23 +168,7 @@ export default async function ServiceDetails({ params }) {
           <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             {/* Left Cards */}
             <div className="grid gap-5">
-              {[
-                {
-                  title: "Expert Development Team",
-                  desc: "Experienced developers following modern architecture, clean coding standards, and scalable development practices.",
-                  icon: Users,
-                },
-                {
-                  title: "Fast & Transparent Delivery",
-                  desc: "Smooth execution with proper planning, milestone tracking, timely updates, and agile workflows.",
-                  icon: Clock,
-                },
-                {
-                  title: "Quality Testing & Support",
-                  desc: "Reliable testing, optimization, maintenance, and long-term support for stable business growth.",
-                  icon: ShieldCheck,
-                },
-              ].map((item, index) => {
+              {serviceWhyChooseCards.map((item, index) => {
                 const Icon = item.icon;
 
                 return (
@@ -247,25 +212,17 @@ export default async function ServiceDetails({ params }) {
 
               {/* Stats */}
               <div className="mt-10 grid grid-cols-2 gap-5">
-                <div className="rounded-3xl bg-white p-6 shadow-sm">
-                  <h3 className="text-4xl font-bold text-[var(--primary)]">
-                    50+
-                  </h3>
+                {serviceWhyChooseStats.map((stat) => (
+                  <div key={stat.label} className="rounded-3xl bg-white p-6 shadow-sm">
+                    <h3 className="text-4xl font-bold text-[var(--primary)]">
+                      {stat.value}
+                    </h3>
 
-                  <p className="mt-2 text-sm text-secondary">
-                    Successful Projects
-                  </p>
-                </div>
-
-                <div className="rounded-3xl bg-white p-6 shadow-sm">
-                  <h3 className="text-4xl font-bold text-[var(--primary)]">
-                    24/7
-                  </h3>
-
-                  <p className="mt-2 text-sm text-secondary">
-                    Technical Support
-                  </p>
-                </div>
+                    <p className="mt-2 text-sm text-secondary">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
               </div>
 
               {/* CTA */}

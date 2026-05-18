@@ -1,11 +1,5 @@
 import { ArrowRight, Quote, Sparkles } from "lucide-react";
-
-const stats = [
-  { value: "120+", label: "Projects Delivered" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "48h", label: "Talent Match" },
-  { value: "3x", label: "Faster Growth" },
-];
+import { clientLogos, happyClientReview, happyClientStats } from "@/data/home";
 
 export default function HappyClients() {
   return (
@@ -41,25 +35,23 @@ export default function HappyClients() {
 
             <div className="flex items-center gap-4">
               <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop"
-                alt="Client"
+                src={happyClientReview.image}
+                alt={happyClientReview.name}
                 className="h-16 w-16 rounded-full object-cover ring-4 ring-[var(--primary)]/10"
               />
 
               <div>
                 <h3 className="text-xl font-semibold text-[var(--text-primary)]">
-                  Sarah Johnson
+                  {happyClientReview.name}
                 </h3>
-              <p className="text-sm text-secondary">
-                  Founder @ NexaFlow
+                <p className="text-sm text-secondary">
+                  {happyClientReview.role}
                 </p>
               </div>
             </div>
 
             <p className="mt-10 max-w-2xl text-xl leading-9 text-[var(--text-primary)]">
-              “Mxpertz helped us build and launch our AI dashboard faster than
-              expected. The communication, design quality and development
-              process were smooth from day one.”
+              {happyClientReview.quote}
             </p>
 
             <button className="btn btn-primary btn-md mt-10 py-4 font-medium">
@@ -71,7 +63,7 @@ export default function HappyClients() {
           {/* Right Stats */}
           <div className="relative bg-gradient-to-br from-[var(--primary)]/15 to-[var(--secondary)]/10 p-8 md:p-12">
             <div className="grid h-full gap-5 sm:grid-cols-2">
-              {stats.map((item, index) => (
+              {happyClientStats.map((item, index) => (
                 <div
                   key={index}
                   className="rounded-[28px] border border-white/60 bg-white/70 p-7 shadow-sm backdrop-blur"
@@ -90,7 +82,7 @@ export default function HappyClients() {
 
         {/* Bottom Logos */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          {["NexaFlow", "CloudPeak", "BrightCRM", "ScaleHub"].map((item) => (
+          {clientLogos.map((item) => (
             <div
               key={item}
               className="rounded-full border border-gray-100 bg-white px-6 py-3 text-sm font-medium text-secondary shadow-sm"

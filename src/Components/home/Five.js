@@ -1,22 +1,5 @@
-import { ArrowRight, Clock, CalendarClock, Timer } from "lucide-react";
-
-const hiringOptions = [
-  {
-    title: "Full Time",
-    subtitle: "Hiring",
-    icon: Clock,
-  },
-  {
-    title: "Part Time",
-    subtitle: "Hiring",
-    icon: CalendarClock,
-  },
-  {
-    title: "Hourly",
-    subtitle: "Hiring",
-    icon: Timer,
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { hiringBanner } from "@/data/home";
 
 export default function HireDevelopersBanner() {
   return (
@@ -24,7 +7,7 @@ export default function HireDevelopersBanner() {
       <div className="relative w-full overflow-hidden bg-black">
         {/* Background Image */}
         <img
-          src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600&auto=format&fit=crop"
+          src={hiringBanner.image}
           alt="Developers working"
           className="absolute inset-0 h-full w-full object-cover opacity-45"
         />
@@ -45,7 +28,7 @@ export default function HireDevelopersBanner() {
 
           {/* Hiring Cards */}
           <div className="mt-10 grid w-full max-w-4xl gap-5 md:grid-cols-3">
-            {hiringOptions.map((item, index) => {
+            {hiringBanner.options.map((item, index) => {
               const Icon = item.icon;
 
               return (

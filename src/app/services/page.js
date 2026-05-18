@@ -1,88 +1,13 @@
 import {
-  Code2,
-  Smartphone,
-  Database,
-  Cloud,
-  Palette,
-  ShieldCheck,
-  Bot,
-  BarChart3,
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
-import { images } from "@/constant/image";
-
-const services = [
-  {
-    title: "Web Development",
-    desc: "Modern, responsive, and SEO-friendly websites using React, Next.js, and clean frontend architecture.",
-    icon: Code2,
-    href: "/services/ui-ux-design",
-  },
-  {
-    title: "Mobile App Development",
-    desc: "High-performance mobile apps with smooth UI, secure APIs, and scalable features.",
-    icon: Smartphone,
-    href: "/services/ui-ux-design",
-  },
-  {
-    title: "UI/UX Design",
-    desc: "Beautiful interfaces, wireframes, prototypes, and user-focused digital experiences.",
-    icon: Palette,
-    href: "/services/ui-ux-design",
-  },
-  {
-    title: "Backend Development",
-    desc: "Secure APIs, authentication systems, dashboards, admin panels, and database integrations.",
-    icon: Database,
-    href: "/services/ui-ux-design",
-  },
-  {
-    title: "Cloud Solutions",
-    desc: "Cloud setup, deployment, hosting, server configuration, and scalable infrastructure.",
-    icon: Cloud,
-    href: "/services/ui-ux-design",
-  },
-  {
-    title: "Software Testing",
-    desc: "Manual and automation testing to deliver reliable, secure, and bug-free applications.",
-    icon: ShieldCheck,
-    href: "/services/ui-ux-design",
-  },
-  {
-    title: "AI & Automation",
-    desc: "AI integrations, chatbots, automation tools, and smart workflow optimization.",
-    icon: Bot,
-    href: "/services/ui-ux-design",
-  },
-  {
-    title: "Data Analytics",
-    desc: "Interactive dashboards, business reports, insights, and data-driven decision support.",
-    icon: BarChart3,
-    href: "/services/ui-ux-design",
-  },
-];
-
-const process = [
-  "Requirement Analysis",
-  "Strategy & Planning",
-  "UI/UX Design",
-  "Development",
-  "Testing & Launch",
-];
-
-const industries = [
-  "Healthcare",
-  "Education",
-  "E-commerce",
-  "Real Estate",
-  "Fintech",
-  "Logistics",
-  "SaaS",
-  "Startups",
-];
+import {
+  developmentProcess,
+  serviceCards,
+  serviceIndustries,
+} from "@/data/servicesPage";
 
 export default function ServicesPage() {
   return (
@@ -134,7 +59,7 @@ export default function ServicesPage() {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => {
+            {serviceCards.map((service) => {
               const Icon = service.icon;
 
               return (
@@ -187,7 +112,7 @@ export default function ServicesPage() {
             </div>
 
             <div className="space-y-5">
-              {process.map((item, index) => (
+              {developmentProcess.map((item, index) => (
                 <div
                   key={item}
                   className="flex items-center gap-5 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm"
@@ -227,7 +152,7 @@ export default function ServicesPage() {
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 pt-4 pb-4 m-4">
-              {industries.map((item) => (
+              {serviceIndustries.map((item) => (
                 <div
                   key={item}
                   className="flex items-center gap-3 rounded-2xl border border-white/30 bg-white/20 p-5 font-semibold text-white backdrop-blur"

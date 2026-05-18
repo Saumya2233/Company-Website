@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
-/* =========================
-   Theme Variables
-========================= */
+
 :root {
   --primary: #a572cf;
   --secondary: #e87779;
@@ -21,9 +19,7 @@
   --shadow-card: 0 20px 70px rgba(15, 23, 42, 0.08);
 }
 
-/* =========================
-   Base Styles
-========================= */
+
 html {
   scroll-behavior: smooth;
 }

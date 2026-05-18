@@ -1,9 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { images } from "@/constant/image";
+import { useRouter } from "next/navigation";
+import { landingHeroContent } from "@/data/home";
 
 export default function Hero() {
+  const router = useRouter();
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-white pt-[78px]">
       {/* Decorative Images */}
@@ -14,7 +17,6 @@ export default function Hero() {
         height={260}
         className="pointer-events-none absolute -left-28 top-[22%] z-0 opacity-55"
       />
-   
 
       <Image
         src={images.circle2}
@@ -51,33 +53,35 @@ export default function Hero() {
       {/* Main Content */}
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-78px)] max-w-6xl flex-col items-center justify-center px-6 text-center">
         <span className="badge-primary mb-6 px-6 font-semibold">
-          Software Development • AI Solutions • Tech Hiring
+          {landingHeroContent.badge}
         </span>
 
-        <h1 className="max-w-5xl text-4xl font-extrabold leading-tight text-black md:text-6xl lg:text-7xl">
-          Building Digital Solutions That Help Businesses Grow
+        <h1 className="max-w-5xl text-4xl font-bold leading-tight text-black md:text-6xl lg:text-7xl">
+          {landingHeroContent.title}
         </h1>
 
         <p className="body-copy mx-auto mt-7 max-w-3xl text-base md:text-lg">
-          Mxpertz creates modern websites, web applications, AI-powered
-          products, and connects companies with skilled interns and tech
-          professionals.
+          {landingHeroContent.description}
         </p>
 
         <div className="mt-10 flex flex-wrap justify-center gap-4 pb-3">
-          <Link
-            href="/contact"
-            className="btn btn-dark btn-lg"
+          <button
+            className="btn btn-primary btn-sm"
+            onClick={() => {
+              router.push(landingHeroContent.actions[0].href);
+            }}
           >
-            Get Started <ArrowRight size={18} />
-          </Link>
+            {landingHeroContent.actions[0].label} <ArrowRight size={18} />
+          </button>
 
-          <Link
-            href="/services"
-            className="btn btn-outline btn-lg text-black shadow-md"
+          <button
+            className="btn border btn-sm"
+            onClick={() => {
+              router.push(landingHeroContent.actions[1].href);
+            }}
           >
-            Explore Services
-          </Link>
+            {landingHeroContent.actions[1].label} <ArrowRight size={18} />
+          </button>
         </div>
       </div>
     </section>

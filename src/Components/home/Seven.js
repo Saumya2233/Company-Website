@@ -2,41 +2,7 @@
 
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "Sarah Johnson",
-    role: "Startup Founder",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
-    review:
-      "The team delivered an amazing SaaS platform with modern UI and smooth performance.",
-  },
-  {
-    name: "Michael Lee",
-    role: "Product Manager",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
-    review:
-      "Their developers integrated AI automation into our workflow perfectly.",
-  },
-  {
-    name: "Emily Davis",
-    role: "Business Owner",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop",
-    review:
-      "Excellent communication, clean code and scalable development process.",
-  },
-  {
-    name: "Daniel Smith",
-    role: "CEO",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop",
-    review:
-      "Professional team with strong technical knowledge and smooth delivery.",
-  },
-];
+import { testimonials } from "@/data/home";
 
 export default function TestimonialsSection() {
   const scrollRef = useRef(null);

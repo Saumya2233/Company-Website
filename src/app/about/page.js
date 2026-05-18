@@ -1,29 +1,7 @@
 import Image from "next/image";
 import { images } from "@/constant/image";
-import { Target, Eye, Rocket, Users, Code2, ShieldCheck } from "lucide-react";
-
-const highlights = [
-  {
-    title: "Modern Software Solutions",
-    desc: "We build websites, SaaS platforms, dashboards, mobile apps and AI-powered tools.",
-    icon: Code2,
-  },
-  {
-    title: "Dedicated Tech Talent",
-    desc: "We help companies hire skilled developers, designers and technical teams.",
-    icon: Users,
-  },
-  {
-    title: "Fast & Scalable Delivery",
-    desc: "Our process focuses on clean development, smooth delivery and scalable architecture.",
-    icon: Rocket,
-  },
-  {
-    title: "Long-Term Support",
-    desc: "We provide testing, maintenance, improvements and support after project delivery.",
-    icon: ShieldCheck,
-  },
-];
+import { Target, Eye } from "lucide-react";
+import { aboutHighlights, missionTags, visionTags } from "@/data/about";
 
 export default function AboutPage() {
   return (
@@ -167,12 +145,18 @@ export default function AboutPage() {
                   </p>
 
                   <div className="mt-5 flex flex-wrap gap-2">
-                    <span className="rounded-full bg-[var(--primary)]/10 px-4 py-2 text-xs font-medium text-[var(--primary)]">
-                      Innovation
-                    </span>
-                    <span className="rounded-full bg-pink-100 px-4 py-2 text-xs font-medium text-pink-600">
-                      Reliable Delivery
-                    </span>
+                    {missionTags.map((tag, index) => (
+                      <span
+                        key={tag}
+                        className={
+                          index === 0
+                            ? "rounded-full bg-[var(--primary)]/10 px-4 py-2 text-xs font-medium text-[var(--primary)]"
+                            : "rounded-full bg-pink-100 px-4 py-2 text-xs font-medium text-pink-600"
+                        }
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -197,12 +181,14 @@ export default function AboutPage() {
                   </p>
 
                   <div className="mt-5 flex flex-wrap gap-2">
-                    <span className="rounded-full bg-white/10 px-4 py-2 text-xs font-medium">
-                      Future Ready
-                    </span>
-                    <span className="rounded-full bg-white/10 px-4 py-2 text-xs font-medium">
-                      Scalable Tech
-                    </span>
+                    {visionTags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-white/10 px-4 py-2 text-xs font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -225,7 +211,7 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {highlights.map((item, index) => {
+            {aboutHighlights.map((item, index) => {
               const Icon = item.icon;
 
               return (
