@@ -19,7 +19,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="bg-white py-8">
+    <section className="pt-8 pb-8 bg-white">
       <div className="container-custom">
         {/* Heading */}
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
@@ -28,11 +28,11 @@ export default function TestimonialsSection() {
               Testimonials
             </span>
 
-            <h2 className="heading-section-lg mt-5">
+            <h2 className="heading-section mt-3">
               What our clients say
             </h2>
 
-            <p className="body-copy-lg mt-5">
+            <p className="body-copy mt-2">
               Trusted by startups and businesses for building modern digital
               products and scalable solutions.
             </p>
@@ -42,14 +42,14 @@ export default function TestimonialsSection() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => scroll("left")}
-              className="flex-center h-10 w-10 rounded-full border border-gray-200 bg-white text-primary shadow-sm transition hover:border-[var(--primary)] hover:text-[var(--primary)]"
+              className="flex-center h-10 w-10 rounded-full border border-gray-200 bg-white text-body-primary shadow-sm transition hover:border-primary hover:text-primary"
             >
               <ChevronLeft size={18} />
             </button>
 
             <button
               onClick={() => scroll("right")}
-              className="flex-center h-10 w-10 rounded-full bg-[var(--primary)] text-white shadow-sm transition hover:bg-[var(--primary-dark)]"
+              className="flex-center h-10 w-10 rounded-full bg-primary text-white shadow-sm transition hover:bg-primary-dark"
             >
               <ChevronRight size={18} />
             </button>
@@ -59,12 +59,12 @@ export default function TestimonialsSection() {
         {/* Scroll Cards */}
         <div
           ref={scrollRef}
-          className="mt-14 flex gap-6 overflow-x-auto scroll-smooth pb-4 scrollbar-hide"
+          className="content-stack flex snap-x gap-6 overflow-x-auto scroll-smooth pb-4 scrollbar-hide"
         >
           {testimonials.map((item, index) => (
             <div
               key={index}
-              className="min-w-[340px] rounded-[30px] border border-gray-100 bg-white p-7 shadow-lg"
+              className="min-w-[min(340px,calc(100vw-48px))] snap-center rounded-[30px] border border-gray-100 bg-white p-5 shadow-lg sm:p-7"
             >
               {/* Stars */}
               <div className="flex gap-1 text-yellow-400">
@@ -74,7 +74,7 @@ export default function TestimonialsSection() {
               </div>
 
               {/* Review */}
-              <p className="mt-5 leading-7 text-secondary">
+              <p className="mt-5 leading-7 text-body-secondary">
                 &quot;{item.review}&quot;
               </p>
 
@@ -87,11 +87,11 @@ export default function TestimonialsSection() {
                 />
 
                 <div>
-                  <h3 className="font-bold text-primary">
+                  <h3 className="font-bold text-body-primary">
                     {item.name}
                   </h3>
 
-                  <p className="text-sm text-secondary">
+                  <p className="text-sm text-body-secondary">
                     {item.role}
                   </p>
                 </div>

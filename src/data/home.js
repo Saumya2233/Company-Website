@@ -55,6 +55,54 @@ export const landingHeroContent = {
   ],
 };
 
+export const cinematicHeroContent = {
+  brand: "avhdkhie",
+  titleStart: "More growth,",
+  titleHighlight: "less work",
+  titleEnd: "Get your time back",
+  description:
+    "Automate repetitive work and unlock premium productivity with modern software, AI workflows, and dedicated tech teams.",
+  action: "Take Control of Your Time",
+};
+
+export const cinematicHeroTalents = [
+  {
+    name: "Lauren",
+    role: "Graphic Designer",
+    prev: "Prev. @ R/GA",
+    imageKey: "image1",
+    offset: "md:mt-10",
+  },
+  {
+    name: "Mark",
+    role: "Developer",
+    prev: "Prev. @ Netflix",
+    imageKey: "image2",
+    offset: "md:mt-24",
+  },
+  {
+    name: "Mary",
+    role: "UI Designer",
+    prev: "Prev. @ Airbnb",
+    imageKey: "image3",
+    offset: "md:mt-12",
+  },
+  {
+    name: "Amanda",
+    role: "Growth Marketer",
+    prev: "Prev. @ Duolingo",
+    imageKey: "image4",
+    offset: "md:mt-24",
+  },
+  {
+    name: "Harry",
+    role: "Project Manager",
+    prev: "Prev. @ Ramp",
+    imageKey: "image5",
+    offset: "md:mt-10",
+  },
+];
+
 export const whyChooseStats = [
   { value: "50+", label: "Projects Delivered" },
   { value: "20+", label: "Happy Clients" },
@@ -63,7 +111,7 @@ export const whyChooseStats = [
 
 export const whyChooseFeatures = [
   {
-    title: "Fast Delivery",
+    title: "Fast Delivery & maintaince",
     desc: "We follow a modern development process to deliver projects quickly and efficiently.",
     icon: Zap,
   },

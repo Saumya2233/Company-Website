@@ -16,21 +16,19 @@ export default function ScrollReveal({
 
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start 0.9", "end 0.2"],
+        offset: ["start 0.95", "start 0.65"],
     });
 
-    // Smooth upward movement
     const y = useTransform(
         scrollYProgress,
         [0, 1],
-        [80, -60]
+        [12, 0]
     );
 
-    // Smooth fade effect
     const opacity = useTransform(
         scrollYProgress,
-        [0, 0.2, 0.8, 1],
-        [0, 1, 1, 0]
+        [0, 1],
+        [0, 1]
     );
 
     return (

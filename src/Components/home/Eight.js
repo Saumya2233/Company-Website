@@ -8,7 +8,7 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="bg-[#f8f7ff] py-8">
+    <section className="section bg-surface-soft">
       <div className="container-custom">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           {/* Left */}
@@ -20,7 +20,7 @@ export default function FaqSection() {
             <h2 className="heading-section mt-6">
               Questions?
               <br />
-              <span className="font-medium text-secondary">
+              <span className="font-medium text-body-secondary">
                 We’ve got answers.
               </span>
             </h2>
@@ -32,11 +32,11 @@ export default function FaqSection() {
 
             {/* Contact Box */}
             <div className="mt-10 rounded-[22px] border border-gray-200 bg-white p-6 shadow-sm">
-              <p className="text-sm font-medium text-secondary">
+              <p className="text-sm font-medium text-body-secondary">
                 Still confused?
               </p>
 
-              <h3 className="mt-3 text-xl font-semibold text-[var(--text-primary)]">
+              <h3 className="mt-3 text-xl font-semibold text-body-primary">
                 Let’s discuss your project.
               </h3>
 
@@ -60,11 +60,11 @@ export default function FaqSection() {
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left"
                   >
-                    <h3 className="text-base font-semibold text-[var(--text-primary)] p-3">
+                    <h3 className="text-base font-semibold text-body-primary p-3">
                       {item.question}
                     </h3>
 
-                    <span className="flex-center h-8 w-8 shrink-0 rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+                    <span className="flex-center h-8 w-8 shrink-0 rounded-full bg-primary/10 text-primary">
                       {isOpen ? (
                         <ChevronUp size={16} />
                       ) : (

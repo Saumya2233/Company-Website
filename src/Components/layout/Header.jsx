@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { images } from "@/constant/image";
 import { navLinks } from "@/data/navigation";
@@ -11,135 +11,173 @@ import { navLinks } from "@/data/navigation";
 export default function Header() {
     const [mobileMenu, setMobileMenu] = useState(false);
     const [openMobileDropdown, setOpenMobileDropdown] = useState(null);
+    const [isHeroVisible, setIsHeroVisible] = useState(true);
+
     const pathname = usePathname();
 
+    useEffect(() => {
+        const hero = document.querySelector("#hero");
+
+        if (!hero) {
+            setIsHeroVisible(false);
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsHeroVisible(entry.isIntersecting);
+            },
+            {
+                threshold: 0.4,
+            }
+        );
+
+        observer.observe(hero);
+
+        return () => observer.disconnect();
+    }, []);
+
+    // SAFE LOGO
+    const currentLogo =
+        isHeroVisible
+            ? images?.whitelogo || images?.logo
+            : images?.logo || images?.whitelogo;
+
     return (
-        <header className="fixed left-0 top-0 z-50 w-full bg-white/90 backdrop-blur-md">
-            <div className="container-page flex h-[78px] items-center justify-between">
-                <Link href="/" className="relative h-12 w-40">
-                    <Image
-                        src={images.logo}
-                        alt="Mxpertz Infolabs"
-                        fill
-                        priority
-                        className="object-contain"
-                    />
+        <header
+            className={`
+                fixed left-0 top-0 z-50 w-full
+                transition-all duration-500 ease-in-out
+                ${isHeroVisible
+                    ? "bg-transparent"
+                    : "bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] border-b border-black/5"
+                }
+            `}
+        >
+            <div className="container-page flex h-[74px] items-center justify-between">
+
+                {/* LOGO */}
+                <Link href="/" className="relative h-12 w-44 shrink-0">
+                    {currentLogo && (
+                        <Image
+                            src={currentLogo}
+                            alt="Mxpertz Infolabs"
+                            fill
+                            priority
+                            className="object-contain transition-all duration-300"
+                        />
+                    )}
                 </Link>
 
-                {/* Desktop Nav */}
-                <nav className="hide-mobile items-center gap-2">
-                    {navLinks.map((item, index) => (
+                {/* DESKTOP NAV */}
+                <nav className="hidden lg:flex items-center gap-2">
+                    {navLinks.map((item) => (
                         <div key={item.name} className="group relative">
                             <Link
                                 href={item.href}
-                                className={`btn btn-sm gap-1 ${pathname === item.href
-                                        ? "bg-[var(--primary)] text-white shadow-[var(--shadow-primary)]"
-                                        : "text-black hover:bg-[var(--primary)] hover:text-white"
-                                    }`}
+                                className={`
+                                    flex items-center gap-1
+                                    rounded-full px-5 py-2.5
+                                    text-[15px] font-medium
+                                    transition-all duration-300
+                                    ${pathname === item.href
+                                        ? "bg-[#A572CF] text-white shadow-lg shadow-[#A572CF]/20"
+                                        : isHeroVisible
+                                            ? "text-white hover:bg-white hover:text-black"
+                                            : "text-[#111] hover:bg-[#A572CF] hover:text-white"
+                                    }
+                                `}
                             >
                                 {item.name}
+
                                 {item.dropdown && (
                                     <ChevronDown
                                         size={15}
-                                        className="transition group-hover:rotate-180"
+                                        className="transition-transform duration-300 group-hover:rotate-180"
                                     />
                                 )}
-                                
                             </Link>
-                         
-
-                            {item.dropdown && (
-                                <div className="invisible absolute left-0 top-12 grid w-[520px] grid-cols-2 gap-2 rounded-2xl border border-gray-100 bg-white p-4 opacity-0 shadow-xl transition-all duration-300 group-hover:visible group-hover:top-11 group-hover:opacity-100">
-                                    {item.dropdown.map((dropItem) => (
-                                        <Link
-                                            key={dropItem.name}
-                                            href={dropItem.href}
-                                            className="block rounded-xl px-2 py-1 text-[13px] font-medium text-secondary transition hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
-                                        >
-                                            {dropItem.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
                         </div>
                     ))}
                 </nav>
 
-                <Link
-                    href="/contact"
-                    className="btn btn-dark btn-sm hidden lg:inline-flex"
-                >
-                    Contact Us
-                </Link>
+                {/* RIGHT SIDE */}
+                <div className="flex items-center gap-4">
 
-                <button onClick={() => setMobileMenu(!mobileMenu)} className="show-mobile">
-                    {mobileMenu ? <X size={28} /> : <Menu size={28} />}
-                </button>
+                    {/* CONTACT BUTTON */}
+                    <Link
+                        href="/contact"
+                        className="
+                            hidden sm:flex
+                            items-center justify-center
+                            rounded-full
+                            bg-gradient-to-r
+                            from-[#A572CF]
+                            to-[#E87779]
+                            px-6 py-3
+                            text-sm font-semibold text-white
+                            shadow-lg shadow-[#A572CF]/20
+                            transition-all duration-300
+                            hover:scale-105
+                        "
+                    >
+                        Contact Us
+                    </Link>
+
+                    {/* MOBILE MENU BUTTON */}
+                    <button
+                        onClick={() => setMobileMenu(!mobileMenu)}
+                        className={`
+                            lg:hidden transition-colors duration-300
+                            ${isHeroVisible ? "text-white" : "text-black"}
+                        `}
+                    >
+                        {mobileMenu ? <X size={28} /> : <Menu size={28} />}
+                    </button>
+                </div>
             </div>
 
-            {/* Mobile Nav */}
+            {/* MOBILE NAV */}
             {mobileMenu && (
-                <div className="max-h-[calc(100vh-78px)] overflow-y-auto border-t border-gray-100 bg-white px-6 py-5 shadow-lg lg:hidden">
+                <div className="lg:hidden border-t border-black/5 bg-white/95 backdrop-blur-xl px-6 py-6 shadow-xl">
                     <div className="flex flex-col gap-3">
+
                         {navLinks.map((item) => (
-                            <div key={item.name}>
-                                {item.dropdown ? (
-                                    <>
-                                        <button
-                                            onClick={() =>
-                                                setOpenMobileDropdown(
-                                                    openMobileDropdown === item.name ? null : item.name
-                                                )
-                                            }
-                                            className="flex w-full items-center justify-between rounded-xl px-2 py-2 text-sm font-semibold text-black"
-                                        >
-                                            {item.name}
-                                            <ChevronDown
-                                                size={17}
-                                                className={`transition ${openMobileDropdown === item.name ? "rotate-180" : ""
-                                                    }`}
-                                            />
-                                        </button>
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                onClick={() => setMobileMenu(false)}
+                                className={`
+                                    flex items-center justify-between
+                                    rounded-2xl px-4 py-3
+                                    text-[15px] font-medium
+                                    transition-all duration-300
+                                    ${pathname === item.href
+                                        ? "bg-[#A572CF] text-white"
+                                        : "text-black hover:bg-zinc-100"
+                                    }
+                                `}
+                            >
+                                {item.name}
 
-                                        {openMobileDropdown === item.name && (
-                                            <div className="mt-2 space-y-2 rounded-2xl bg-gray-50 p-3">
-                                                <Link
-                                                    href={item.href}
-                                                    onClick={() => setMobileMenu(false)}
-                                                    className="block rounded-xl px-3 py-2 text-sm font-medium text-[var(--primary)]"
-                                                >
-                                                    View All {item.name}
-                                                </Link>
-
-                                                {item.dropdown.map((dropItem) => (
-                                                    <Link
-                                                        key={dropItem.name}
-                                                        href={dropItem.href}
-                                                        onClick={() => setMobileMenu(false)}
-                                                        className="block rounded-xl px-3 py-2 text-sm font-medium text-secondary"
-                                                    >
-                                                        {dropItem.name}
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </>
-                                ) : (
-                                    <Link
-                                        href={item.href}
-                                        onClick={() => setMobileMenu(false)}
-                                        className="block rounded-xl px-2 py-2 text-sm font-semibold text-black"
-                                    >
-                                        {item.name}
-                                    </Link>
+                                {item.dropdown && (
+                                    <ChevronDown size={16} />
                                 )}
-                            </div>
+                            </Link>
                         ))}
 
                         <Link
                             href="/contact"
                             onClick={() => setMobileMenu(false)}
-                            className="btn btn-dark btn-sm mt-3"
+                            className="
+                                mt-2 flex items-center justify-center
+                                rounded-2xl
+                                bg-gradient-to-r
+                                from-[#A572CF]
+                                to-[#E87779]
+                                px-5 py-3
+                                font-semibold text-white
+                            "
                         >
                             Contact Us
                         </Link>

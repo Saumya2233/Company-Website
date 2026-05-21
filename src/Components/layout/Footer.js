@@ -1,4 +1,6 @@
 import { Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
+import {images} from "@/constant/image"
 import {
   footerCompany,
   footerContactItems,
@@ -15,12 +17,18 @@ const footerContactIcons = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#08050f] pt-20 text-white">
+    <footer className="bg-[#08050f] pt-14 text-white md:pt-20">
       <div className="container-custom">
         <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <h2 className="text-2xl font-semibold">{footerCompany.name}</h2>
+            <Image
+                                       src={images.whitelogo}
+                                       alt="Mxpertz Infolabs"
+                                       fill
+                                       priority
+                                       className="object-contain transition-all duration-300"
+                                   />
 
             <p className="mt-4 text-sm leading-7 text-white/60">
               {footerCompany.description}
@@ -30,7 +38,7 @@ export default function Footer() {
               {footerSocialLinks.map(({ label, icon: Icon }) => (
                 <div
                   key={label}
-                  className="flex-center h-10 w-10 rounded-full bg-white/10 text-white transition hover:bg-[var(--primary)]"
+                  className="flex-center h-10 w-10 rounded-full bg-white/10 text-white transition hover:bg-primary"
                 >
                   <Icon size={16} />
                 </div>
@@ -66,7 +74,7 @@ export default function Footer() {
 
                 return (
                   <p key={item.label} className="flex gap-3">
-                    <Icon size={18} className="text-[var(--primary)]" />
+                    <Icon size={18} className="text-primary" />
                     {item.value}
                   </p>
                 );

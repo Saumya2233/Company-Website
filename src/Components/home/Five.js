@@ -3,7 +3,7 @@ import { hiringBanner } from "@/data/home";
 
 export default function HireDevelopersBanner() {
   return (
-    <section className="relative overflow-hidden bg-white ">
+    <section className=" relative overflow-hidden bg-white">
       <div className="relative w-full overflow-hidden bg-black">
         {/* Background Image */}
         <img
@@ -16,9 +16,9 @@ export default function HireDevelopersBanner() {
         <div className="absolute inset-0 bg-black/60" />
 
         {/* Content */}
-        <div className="relative z-10 mx-auto flex min-h-[520px] max-w-7xl flex-col items-center justify-center px-6 py-20 text-center text-white lg:px-10">
-          <h4 className="max-w-5xl text-3xl font-extrabold md:text-6xl">
-            Scale Your Product with Certified Developers and Fresh Ideas
+        <div className="container-page relative z-10 flex min-h-[440px] flex-col items-center justify-center py-12 text-center text-white md:min-h-[520px] md:py-16">
+          <h4 className="max-w-5xl text-3xl font-bold md:text-4xl">
+            Scale Your Product with Certified Developers <br /> and Fresh Ideas
           </h4>
 
           <p className="mt-5 max-w-4xl text-base leading-8 text-gray-200 md:text-lg">
@@ -36,12 +36,12 @@ export default function HireDevelopersBanner() {
                   key={index}
                   className="flex items-center gap-4 rounded-3xl bg-white px-6 py-5 text-left shadow-2xl"
                 >
-                  <div className="flex-center h-14 w-14 rounded-full bg-[var(--primary)]/15 text-[var(--primary)]">
+                  <div className="flex-center h-12 w-14 rounded-full bg-primary/15 text-primary">
                     <Icon size={24} />
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-extrabold text-black">
+                    <h3 className="text-lg font-bold text-black">
                       {item.title}
                     </h3>
 

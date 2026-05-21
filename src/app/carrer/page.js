@@ -7,6 +7,7 @@ import { Search, MapPin } from "lucide-react";
 import JobModal from "@/modals/JobDescriptionsModal";
 import ApplyModal from "@/modals/ApplyModal";
 import { careerFilters, careerStats, careerTeamImages, jobs } from "@/data/careers";
+import { motionTiming, premiumEase } from "@/constants/motion";
 
 export default function CareersPage() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -41,15 +42,15 @@ export default function CareersPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#faf7ff] to-[#fff7f5] pb-24 pt-32">
+      <section className="section-hero relative overflow-hidden bg-gradient-to-b from-[#faf7ff] to-[#fff7f5]">
         <div className="absolute left-[-120px] top-[-120px] h-72 w-72 rounded-full bg-[#A572CF]/20 blur-3xl" />
         <div className="absolute bottom-[-120px] right-[-120px] h-72 w-72 rounded-full bg-[#E87779]/20 blur-3xl" />
 
-        <div className="container-custom grid items-center gap-16 lg:grid-cols-2">
+        <div className="container-custom grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <span className="section-tag">Careers at Mxpertz</span>
 
-            <h1 className="heading-xl mt-7 max-w-3xl">
+            <h1 className="text-3xl font-semibold mx-auto mt-6 max-w-4xl">
               Build your future with a team that creates meaningful digital
               products.
             </h1>
@@ -70,7 +71,7 @@ export default function CareersPage() {
               </button>
             </div>
 
-            <div className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4">
+            <div className="mt-12 grid grid-cols-2 gap-5 md:grid-cols-4 lg:mt-16 lg:gap-6">
               {careerStats.map(({ value, label, color }) => (
                 <div key={label}>
                   <h3
@@ -79,14 +80,14 @@ export default function CareersPage() {
                   >
                     {value}
                   </h3>
-                  <p className="mt-2 text-sm text-secondary">{label}</p>
+                  <p className="mt-2 text-sm text-body-secondary">{label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute bottom-[-40px] left-[-40px] h-72 w-72 rounded-full bg-gradient-to-br from-[#A572CF] to-[#E87779] opacity-30 blur-3xl" />
+          <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+            <div className="absolute bottom-[-40px] left-0 h-56 w-56 rounded-full bg-gradient-to-br from-[#A572CF] to-[#E87779] opacity-30 blur-3xl md:left-[-40px] md:h-72 md:w-72" />
 
             <div className="relative overflow-hidden rounded-bl-[160px] rounded-tl-[160px] border border-white/40 bg-white shadow-2xl md:rounded-bl-[220px] md:rounded-tl-[220px]">
               <div className="grid grid-cols-3 gap-0">
@@ -104,22 +105,19 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <section id="jobs" className="relative bg-white py-16 md:py-20">
+      <section id="jobs" className="section relative bg-white">
         <div className="container-custom">
-          <div className="-mt-28 rounded-[28px] border border-white/70 bg-white/95 p-5 shadow-2xl backdrop-blur-xl md:p-7">
+          <div className="-mt-20 rounded-[28px] border border-white/70 bg-white/95 p-5 shadow-2xl backdrop-blur-xl md:-mt-28 md:p-5">
             <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary">
-                  Search jobs
-                </label>
-                <div className="flex h-14 items-center gap-3 rounded-2xl border border-gray-200 bg-white px-4 transition focus-within:border-[var(--primary)] focus-within:ring-4 focus-within:ring-[var(--primary)]/10">
-                  <Search size={18} className="shrink-0 text-[var(--primary)]" />
+                <div className="flex h-9 items-center gap-2 rounded-2xl border border-gray-200 bg-white px-4 transition focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10">
+                  <Search size={15} className="shrink-0 text-primary" />
                   <input
                     type="text"
                     placeholder="Search by title, location, type, or level"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="h-full w-full bg-transparent text-sm text-primary outline-none placeholder:text-gray-400"
+                    className="h-20 w-full bg-transparent text-sm text-body-primary outline-none placeholder:text-gray-400"
                   />
                 </div>
               </div>
@@ -131,8 +129,8 @@ export default function CareersPage() {
                     onClick={() => setActiveFilter(filter)}
                     className={`h-11 rounded-full px-4 text-sm font-medium transition ${
                       activeFilter === filter
-                        ? "bg-[var(--primary)] text-white shadow-[var(--shadow-primary)]"
-                        : "border border-gray-200 bg-white text-secondary hover:border-[var(--primary)] hover:text-[var(--primary)]"
+                        ? "bg-primary text-white shadow-primary"
+                        : "border border-gray-200 bg-white text-body-secondary hover:border-primary hover:text-primary"
                     }`}
                   >
                     {filter}
@@ -146,26 +144,29 @@ export default function CareersPage() {
             <div>
               <span className="eyebrow">Open Positions</span>
               <h2 className="heading-lg mt-3">Explore career opportunities</h2>
+              <p className="description-md ">
+                Find roles designed for people who like clean products,
+                practical engineering, and thoughtful collaboration.
+              </p>
             </div>
-
-            <p className="description-md max-w-xl">
-              Find roles designed for people who like clean products, practical
-              engineering, and thoughtful collaboration.
-            </p>
           </div>
 
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {filteredJobs.map((job, index) => (
               <motion.article
                 key={`${job.title}-${index}`}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: index * 0.04 }}
-                className="group flex h-full min-h-[330px] flex-col rounded-[28px] border border-gray-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[var(--primary)]/30 hover:shadow-xl"
+                transition={{
+                  duration: motionTiming.card,
+                  delay: index * 0.04,
+                  ease: premiumEase,
+                }}
+                className="group flex h-full min-h-[330px] flex-col rounded-[28px] border border-gray-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl"
               >
                 <div className="flex items-start justify-between gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#A572CF]/15 to-[#E87779]/15 text-xl text-[var(--primary)]">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl text-xl text-primary">
                     <FaBriefcase />
                   </div>
 
@@ -174,9 +175,9 @@ export default function CareersPage() {
                   </span>
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-3">
                   <h3 className="card-title-lg">{job.title}</h3>
-                  <p className="mt-2 text-sm font-medium text-[var(--primary)]">
+                  <p className="mt-2 text-sm font-medium text-primary">
                     Mxpertz Infolabs · {job.type}
                   </p>
                 </div>
@@ -208,8 +209,8 @@ export default function CareersPage() {
 
           {filteredJobs.length === 0 && (
             <div className="mt-10 rounded-[24px] border border-dashed border-gray-200 bg-gray-50 p-10 text-center">
-              <MapPin className="mx-auto text-[var(--primary)]" size={28} />
-              <h3 className="mt-4 text-xl font-medium text-primary">
+              <MapPin className="mx-auto text-primary" size={28} />
+              <h3 className="mt-4 text-xl font-medium text-body-primary">
                 No roles found
               </h3>
               <p className="description-sm mx-auto mt-2 max-w-md">

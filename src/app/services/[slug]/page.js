@@ -20,7 +20,7 @@ export default async function ServiceDetails({ params }) {
   if (!service) return notFound();
 
   return (
-    <main className="bg-white pt-[28px]">
+    <main className="page-main">
       {/* Hero */}
       <section className="section-lg section-soft relative overflow-hidden">
         <div className="glow-primary-lg left-[-120px] top-10" />
@@ -68,16 +68,16 @@ export default async function ServiceDetails({ params }) {
               className="h-[430px] w-full rounded-[32px] object-cover shadow-2xl"
             />
 
-            <div className="absolute -bottom-7 -left-6 rounded-3xl bg-white p-5 shadow-2xl">
+            <div className="absolute bottom-4 left-4 rounded-3xl bg-white p-4 shadow-2xl sm:-bottom-7 sm:-left-6 sm:p-5">
               <div className="flex items-center gap-3">
                 <div className="icon-bubble">
                   <Code2 size={24} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">
+                  <h3 className="text-lg font-semibold text-body-primary">
                     Expert Team
                   </h3>
-                  <p className="text-sm text-secondary">
+                  <p className="text-sm text-body-secondary">
                     Skilled developers
                   </p>
                 </div>
@@ -90,10 +90,10 @@ export default async function ServiceDetails({ params }) {
       {/* Features */}
       <section className="section relative overflow-hidden">
         {/* Background Glow */}
-        <div className="absolute left-[-120px] top-[-120px] h-72 w-72 rounded-full bg-[var(--primary)]/10 blur-3xl" />
+        <div className="absolute left-[-120px] top-[-120px] h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
 
         <div className="container-custom relative">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             {/* Left Content */}
             <div>
               <span className="badge-primary font-semibold uppercase tracking-[3px]">
@@ -102,7 +102,7 @@ export default async function ServiceDetails({ params }) {
 
               <h2 className="heading-section-lg mt-6 max-w-xl font-semibold">
                 Complete{" "}
-                <span className="text-[var(--primary)]">{service.title}</span>{" "}
+                <span className="text-primary">{service.title}</span>{" "}
                 solutions built for modern businesses.
               </h2>
 
@@ -115,14 +115,14 @@ export default async function ServiceDetails({ params }) {
               </p>
 
               {/* Stats */}
-              <div className="mt-5 grid grid-cols-2 gap-6 md:grid-cols-3">
+              <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
                 {serviceFeatureStats.map((stat) => (
                   <div key={stat.label} className="card-stat">
-                    <h3 className="text-3xl font-bold text-[var(--primary)]">
+                    <h3 className="text-3xl font-bold text-primary">
                       {stat.value}
                     </h3>
 
-                    <p className="mt-2 text-sm text-secondary">
+                    <p className="mt-2 text-sm text-body-secondary">
                       {stat.label}
                     </p>
                   </div>
@@ -143,7 +143,7 @@ export default async function ServiceDetails({ params }) {
                     <CheckCircle size={22} />
                   </div>
 
-                  <h3 className="mt-5 text-lg font-semibold text-[var(--text-primary)]">
+                  <h3 className="mt-5 text-lg font-semibold text-body-primary">
                     {feature}
                   </h3>
 
@@ -174,14 +174,14 @@ export default async function ServiceDetails({ params }) {
                 return (
                   <div
                     key={index}
-                    className="group flex gap-5 rounded-[28px] border border-white bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[var(--primary)]/30 hover:shadow-[var(--shadow-primary)]"
+                    className="group flex flex-col gap-5 rounded-[28px] border border-white bg-white p-5 shadow-[0_18px_50px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-primary sm:flex-row sm:p-6"
                   >
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)] transition group-hover:bg-[var(--primary)] group-hover:text-white">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-white">
                       <Icon size={26} />
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-semibold text-[var(--text-primary)]">
+                      <h3 className="text-xl font-semibold text-body-primary">
                         {item.title}
                       </h3>
 
@@ -198,7 +198,7 @@ export default async function ServiceDetails({ params }) {
             <div>
               <h2 className="heading-section-lg mt-6 font-semibold">
                 Trusted technology partner for{" "}
-                <span className="text-[var(--primary)]">
+                <span className="text-primary">
                   modern digital solutions
                 </span>
                 .
@@ -211,14 +211,14 @@ export default async function ServiceDetails({ params }) {
               </p>
 
               {/* Stats */}
-              <div className="mt-10 grid grid-cols-2 gap-5">
+              <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
                 {serviceWhyChooseStats.map((stat) => (
                   <div key={stat.label} className="rounded-3xl bg-white p-6 shadow-sm">
-                    <h3 className="text-4xl font-bold text-[var(--primary)]">
+                    <h3 className="text-4xl font-bold text-primary">
                       {stat.value}
                     </h3>
 
-                    <p className="mt-2 text-sm text-secondary">
+                    <p className="mt-2 text-sm text-body-secondary">
                       {stat.label}
                     </p>
                   </div>

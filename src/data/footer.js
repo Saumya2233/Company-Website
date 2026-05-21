@@ -6,6 +6,7 @@ import {
 } from "react-icons/fa";
 
 export const footerCompany = {
+  
   name: "MXPERTZ",
   description:
     "We build modern websites, mobile apps, SaaS products and AI-powered solutions for growing businesses.",

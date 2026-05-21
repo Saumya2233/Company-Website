@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Briefcase, MapPin, Clock } from "lucide-react";
 import { jobResponsibilities } from "@/data/jobDetails";
+import { motionTiming, premiumEase } from "@/constants/motion";
 
 export default function JobModal({ isOpen, onClose, job, onApply }) {
   if (!job) return null;
@@ -22,10 +23,10 @@ export default function JobModal({ isOpen, onClose, job, onApply }) {
 
           {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.92, y: 40 }}
+            initial={{ opacity: 0, scale: 0.98, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.92, y: 40 }}
-            transition={{ duration: 0.25 }}
+            exit={{ opacity: 0, scale: 0.98, y: 12 }}
+            transition={{ duration: motionTiming.modal, ease: premiumEase }}
             className="fixed left-1/2 top-1/2 z-[101] w-[95%] max-w-3xl -translate-x-1/2 -translate-y-1/2 rounded-[32px] bg-white p-8 shadow-2xl"
           >
             {/* Header */}
@@ -35,7 +36,7 @@ export default function JobModal({ isOpen, onClose, job, onApply }) {
                   Career Opportunity
                 </span>
 
-                <h2 className="mt-5 text-4xl font-bold text-[var(--text-primary)]">
+                <h2 className="mt-5 text-2xl  text-body-primary">
                   {job.title}
                 </h2>
               </div>
@@ -49,7 +50,7 @@ export default function JobModal({ isOpen, onClose, job, onApply }) {
             </div>
 
             {/* Tags */}
-            <div className="mt-7 flex flex-wrap gap-4">
+            {/* <div className="mt-7 flex flex-wrap gap-4">
               <div className="flex items-center gap-2 rounded-full bg-[#A572CF]/10 px-4 py-2 text-sm font-medium text-[#A572CF]">
                 <Briefcase size={16} />
                 {job.type}
@@ -64,22 +65,22 @@ export default function JobModal({ isOpen, onClose, job, onApply }) {
                 <Clock size={16} />
                 {job.level}
               </div>
-            </div>
+            </div> */}
 
             {/* Description */}
-            <div className="mt-10">
-              <h3 className="text-xl font-semibold text-[var(--text-primary)]">
+            <div className="mt-5">
+              <h3 className="text-xl font-semibold text-body-primary">
                 Job Description
               </h3>
 
-              <p className="mt-4 leading-8 text-[var(--text-secondary)]">
+              <p className="mt-4 leading-8 text-body-secondary">
                 {job.desc}
               </p>
             </div>
 
             {/* Responsibilities */}
-            <div className="mt-10">
-              <h3 className="text-xl font-semibold text-[var(--text-primary)]">
+            <div className="mt-5">
+              <h3 className="text-xl font-semibold text-body-primary">
                 Responsibilities
               </h3>
 
@@ -87,7 +88,7 @@ export default function JobModal({ isOpen, onClose, job, onApply }) {
                 {jobResponsibilities.map((item, index) => (
                   <li
                     key={index}
-                    className="flex items-start gap-3 text-[var(--text-secondary)]"
+                    className="flex items-start gap-3 text-body-secondary"
                   >
                     <span className="mt-2 h-2 w-2 rounded-full bg-[#A572CF]" />
                     {item}

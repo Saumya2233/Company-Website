@@ -11,14 +11,13 @@ import {
 
 export default function ServicesPage() {
   return (
-    <main className="bg-white text-[var(--text-primary)]">
+    <main className="bg-white text-body-primary">
       {/* Hero */}
-      <section className="gradient-soft relative overflow-hidden px-6 py-24 md:py-32">
-        <div className="glow-primary-lg left-[-120px] top-[-120px] bg-[var(--primary)]/25" />
-        <div className="glow-primary-lg bottom-[-120px] right-[-120px] bg-[var(--secondary)]/25" />
+      <section className="section-hero gradient-soft relative overflow-hidden">
+        
 
         <div className="container-custom relative text-center">
-          <h1 className="heading-hero mx-auto mt-6 max-w-4xl font-bold">
+          <h1 className="text-3xl mx-auto mt-3 max-w-4xl font-semibold">
             Smart Software Services for Modern Businesses
           </h1>
 
@@ -41,31 +40,31 @@ export default function ServicesPage() {
       </section>
 
       {/* Services */}
-      <section className="px-6 ">
+      <section className="p-8 bg-white">
         <div className="container-custom">
-          <div className="mb-14 text-center">
+          <div className="section-heading">
             <span className="eyebrow tracking-widest">
               What We Offer
             </span>
 
-            <h2 className="heading-section-lg mt-3 font-bold">
+            <h2 className="heading-section mt-3 font-bold">
               Our Software Development Services
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-secondary">
+            <p className="mx-auto mt-4 max-w-2xl text-body-secondary">
               From idea to deployment, we provide complete digital solutions
               with clean design, modern technology, and reliable development.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="content-stack grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {serviceCards.map((service) => {
               const Icon = service.icon;
 
               return (
                 <div
                   key={service.title}
-                  className="card-feature group p-7 hover:border-[var(--primary)]/40"
+                  className="card-feature group p-7 hover:border-primary/40"
                 >
                   <div className="icon-bubble-lg icon-bubble-hover mb-6">
                     <Icon size={26} />
@@ -79,7 +78,7 @@ export default function ServicesPage() {
 
                   <Link
                     href={service.href}
-                    className="mt-6 flex items-center gap-2 text-sm font-semibold text-[var(--primary)]"
+                    className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary"
                   >
                     Learn More
                     <ArrowRight size={16} />
@@ -92,7 +91,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Process */}
-      <section className="gradient-soft-alt px-6 py-20">
+      <section className="p-8 gradient-soft-alt">
         <div className="container-custom">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
@@ -100,24 +99,24 @@ export default function ServicesPage() {
                 Our Process
               </span>
 
-              <h2 className="heading-section-lg mt-3 font-bold">
+              <h2 className="heading-section mt-3 font-bold">
                 A Simple Process That Delivers Results
               </h2>
 
-              <p className="mt-5 leading-8 text-secondary">
+              <p className="mt-5 leading-8 text-body-secondary">
                 We follow a clear development workflow to understand your
                 requirements, design the right solution, develop it with clean
                 code, test it properly, and support you after launch.
               </p>
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-2">
               {developmentProcess.map((item, index) => (
                 <div
                   key={item}
-                  className="flex items-center gap-5 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm"
+                  className="flex items-center gap-5 rounded-2xl bg-white p-5 shadow-sm"
                 >
-                  <div className="flex-center h-12 w-12 rounded-full bg-[var(--primary)] text-lg font-bold text-white shadow-[var(--shadow-primary)]">
+                  <div className="flex-center h-9 w-12 rounded-full bg-primary text-lg font-bold text-white shadow-primary">
                     {index + 1}
                   </div>
 
@@ -130,17 +129,17 @@ export default function ServicesPage() {
       </section>
 
       {/* Industries */}
-      <section className="pb-10">
+      <section className="section bg-white">
         <div
-          className="container-custom gradient-primary rounded-[2rem] p-8 text-white shadow-[var(--shadow-primary)] md:p-14"
+          className="container-custom gradient-primary rounded-[2rem] text-white shadow-primary md:p-14"
         >
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
               <span className="text-sm font-semibold uppercase tracking-widest text-white">
                 Industries We Serve
               </span>
 
-              <h2 className="mt-3 text-3xl font-bold leading-tight text-white md:text-5xl">
+              <h2 className="mt-3 text-2xl font-semibold leading-tight text-white md:text-5xl">
                 Building Software for Every Industry
               </h2>
 
@@ -151,7 +150,7 @@ export default function ServicesPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 pt-4 pb-4 m-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {serviceIndustries.map((item) => (
                 <div
                   key={item}

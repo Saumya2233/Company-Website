@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { motionTiming, premiumEase } from "@/constants/motion";
 
 export default function ApplyModal({ isOpen, onClose, job }) {
   return (
@@ -17,9 +18,10 @@ export default function ApplyModal({ isOpen, onClose, job }) {
           />
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 40 }}
+            initial={{ opacity: 0, scale: 0.98, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 40 }}
+            exit={{ opacity: 0, scale: 0.98, y: 12 }}
+            transition={{ duration: motionTiming.modal, ease: premiumEase }}
             className="fixed left-1/2 top-1/2 z-[111] max-h-[90vh] w-[calc(100%-24px)] max-w-2xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-[28px] bg-white p-5 shadow-2xl md:p-8"
           >
             <div className="flex items-start justify-between gap-5 border-b border-gray-100 pb-5">
@@ -36,7 +38,7 @@ export default function ApplyModal({ isOpen, onClose, job }) {
 
               <button
                 onClick={onClose}
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 text-primary transition hover:bg-gray-100"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 text-body-primary transition hover:bg-gray-100"
               >
                 <X size={20} />
               </button>
